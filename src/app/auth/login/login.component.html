@@ -1,0 +1,47 @@
+<div class="ui middle aligned grid">
+  <div class="four wide column"></div>
+  <div class="eight wide column">
+    <h2 class="ui center aligned header">Welcome to MyBudget Angular</h2>
+
+    <form
+      class="ui form"
+      [ngClass]="{'loading': isLoading}"
+      [formGroup]="loginForm"
+      (submit)="onSubmit()"
+    >
+      <div class="ui segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <input
+              type="email"
+              placeholder="Email"
+              formControlName="email">
+            <i class="mail icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <input
+              type="password"
+              placeholder="Password"
+              formControlName="password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="ui fluid primary button"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+      </div>
+      <budget-message
+        *ngIf="errorMsg"
+        [message]="errorMsg"
+        (onClose)="closeMessage()">
+      </budget-message>
+    </form>
+  </div>
+  <div class="four wide column"></div>
+</div>
