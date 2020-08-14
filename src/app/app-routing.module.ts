@@ -8,10 +8,12 @@ const routes: Routes = [
     path: '',
     redirectTo: '/auth',
     pathMatch: 'full'
-  }, {
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-  }, {
+  },
+  {
     path: 'welcome',
     component: WelcomeComponent
   }
@@ -21,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

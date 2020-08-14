@@ -12,11 +12,11 @@ import { MessageStateEnum } from '../../enums/states.enum';
 export class BudgetMessageComponent implements OnInit {
   @Output() onClose = new EventEmitter();
   @Input() message: Message;
-  
+
   public messageStyle: string;
 
   ngOnInit(): void {
-    switch(this.message.type) {
+    switch (this.message.type) {
       case MessageStateEnum.ERROR:
         this.messageStyle = 'negative';
         break;
@@ -28,7 +28,7 @@ export class BudgetMessageComponent implements OnInit {
     }
   }
 
-  public onCloseClick() {
-    this.onClose.emit()
+  public onCloseClick(): void {
+    this.onClose.emit();
   }
 }

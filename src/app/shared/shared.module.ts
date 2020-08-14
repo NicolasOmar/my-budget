@@ -6,18 +6,8 @@ import { BudgetMessageComponent } from './components/budget-message/budget-messa
 import { BudgetInputComponent } from './components/budget-input/budget-input.component';
 
 @NgModule({
-  declarations: [
-    BudgetMessageComponent,
-    BudgetInputComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  exports: [
-    BudgetMessageComponent,
-    BudgetInputComponent
-  ]
+  declarations: [BudgetMessageComponent, BudgetInputComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  exports: [BudgetMessageComponent, BudgetInputComponent]
 })
-export class SharedModule { }
+export class SharedModule {}

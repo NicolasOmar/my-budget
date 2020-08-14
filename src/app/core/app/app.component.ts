@@ -14,21 +14,17 @@ export class AppComponent implements OnInit, OnDestroy {
   private sub: Subscription;
   public loggedUser: UserModel = null;
 
-  constructor(
-    private authService: AuthService
-  ) {}
+  constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    this.sub = this.authService.loggedUser.subscribe(
-      userResponse => {
-        if (userResponse) {
-          this.loggedUser = userResponse
-        }
+  ngOnInit(): void {
+    this.sub = this.authService.loggedUser.subscribe(userResponse => {
+      if (userResponse) {
+        this.loggedUser = userResponse;
       }
-    )
+    });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 }

@@ -8,9 +8,8 @@ describe('BudgetMessageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BudgetMessageComponent ]
-    })
-    .compileComponents();
+      declarations: [BudgetMessageComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

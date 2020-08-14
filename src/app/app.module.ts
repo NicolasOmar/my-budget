@@ -13,9 +13,7 @@ import { UsersModule } from './users/users.module';
 import { AppComponent } from './core/app/app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -30,4 +28,4 @@ import { AppComponent } from './core/app/app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

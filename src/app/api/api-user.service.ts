@@ -5,35 +5,30 @@ import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 interface UserPayload {
-  email: string,
-  password: string
+  email: string;
+  password: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiUserService {
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) {}
 
   public logIn(user: UserPayload) {
-    return this.http.post(`${environment.API_URL}/users/login`, user)
-      .pipe(
-        catchError(
-          error => throwError(this.parseError(error))
-        ),
-        tap(response => response)
-      )
+    return this.http.post(`${environment.API_URL}/users/login`, user).pipe(
+      catchError(error => throwError(this.parseError(error))),
+      tap(response => response)
+    );
   }
 
-  private parseError(error: HttpErrorResponse) {
+  private parseError(error: HttpErrorResponse): HttpErrorResponse | string {
     console.error(error);
     switch (error.status) {
       case 0:
-        return 'bad day'
+        return 'bad day';
       default:
-        return error
+        return error;
     }
   }
 }

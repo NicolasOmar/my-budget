@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 // API SERVICES
 import { ApiUserService } from 'src/app/api/api-user.service';
@@ -12,22 +12,18 @@ import { UserPayload, UserModel, UserResponse } from '../interfaces/user.interfa
 export class AuthService {
   public loggedUser = new BehaviorSubject<UserModel>(null);
 
-  constructor(
-    private apiUserService: ApiUserService
-  ) { }
+  constructor(private apiUserService: ApiUserService) {}
 
-  public logIn(user: UserPayload) {
+  public logIn(user: UserPayload): Observable<UserResponse> {
     return this.apiUserService.logIn(user).pipe(
-      tap(
-        (data: UserResponse) => {
-          const formedObj = {
-            ...data.userLogged,
-            token: data.token
-          }
+      tap((data: UserResponse) => {
+        const formedObj = {
+          ...data.userLogged,
+          token: data.token
+        };
 
-          this.loggedUser.next(formedObj)
-        }
-      )
-    )
+        this.loggedUser.next(formedObj);
+      })
+    );
   }
 }
