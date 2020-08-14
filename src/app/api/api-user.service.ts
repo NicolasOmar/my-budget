@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { ErrorEnum } from '../shared/enums/errors.enum';
 
 interface UserPayload {
   email: string;
@@ -26,9 +27,9 @@ export class ApiUserService {
     console.error(error);
     switch (error.status) {
       case 0:
-        return 'bad day';
+        return ErrorEnum.NO_SERVER;
       default:
-        return error;
+        return error.error;
     }
   }
 }
