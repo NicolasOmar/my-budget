@@ -7,12 +7,12 @@
     "start": "node server.js",
     "local": "ng serve --o",
     "setup": "npm i -g @angular/cli && npm i",
-    "build": "ng build --aot --prod",
     "test": "ng test",
     "lint": "eslint --fix src/**/*.ts",
     "prettier": "prettier --write src",
     "tsc": "tsc",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",
