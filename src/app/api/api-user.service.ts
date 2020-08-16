@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+// ENUMS
 import { ErrorEnum } from '../shared/enums/errors.enum';
 
 interface UserPayload {
@@ -24,7 +25,6 @@ export class ApiUserService {
   }
 
   private parseError(error: HttpErrorResponse): HttpErrorResponse | string {
-    console.error(error);
     switch (error.status) {
       case 0:
         return ErrorEnum.NO_SERVER;

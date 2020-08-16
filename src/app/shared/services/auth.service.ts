@@ -22,8 +22,24 @@ export class AuthService {
           token: data.token
         };
 
+        this.setLocalUser(formedObj);
         this.loggedUser.next(formedObj);
       })
     );
+  }
+
+  public autoLogIn() {
+    const userData: UserModel = this.getLocalUser();
+    if (userData) {
+      this.loggedUser.next(userData);
+    }
+  }
+
+  private setLocalUser(userData: UserModel) {
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
+
+  private getLocalUser(): UserModel | null {
+    return JSON.parse(localStorage.getItem('userData'));
   }
 }

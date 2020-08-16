@@ -7,7 +7,7 @@ Before cloning this repo, I recommend installing the following software:
 - [API Repo](https://github.com/NicolasOmar/my-budget-api) to work in a local environment
 
 ## Setup
-After cloning the repo, just install the node packages in the project´s root file.
+After cloning the repo, just install the node packages (including [Angular CLI](https://cli.angular.io/) on the global level) in the project's root file.
 ```sh
 git clone https://github.com/NicolasOmar/my-budget-angular.git
 cd my-budget-angular
@@ -33,9 +33,9 @@ Those environments are been deployed on [Heroku](https://www.heroku.com/)
 | in-progress | [mybudget-angular-dev](https://mybudget-angular-dev.herokuapp.com/) | Working on next iteration |
 
 ## Find out more
-| [Project Docs](https://github.com/NicolasOmar/my-budget-api/wiki/Project-documentation) | [Technical Docs](https://github.com/NicolasOmar/my-budget-api/wiki/Technical-documentation) | [Changelog](https://github.com/NicolasOmar/my-budget-angular/blob/master/CHANGELOG.md) |
-| ----- | ----- | ----- |
-| Documentation related to project aspects (objective, features & roadmap) | Documentation related to technical aspects (used packages, testing mechanisms) | List of features and bug fixes included on each iteration/release |
+| [Project Docs](https://github.com/NicolasOmar/my-budget-api/wiki/Project-documentation) | [Technical Docs](https://github.com/NicolasOmar/my-budget-api/wiki/Technical-documentation) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) | [Changelog](https://github.com/NicolasOmar/my-budget-angular/blob/master/CHANGELOG.md) |
+| ----- | ----- | ----- | ----- |
+| Documentation related to project aspects (objective, features & roadmap) | Documentation related to technical aspects (used packages, testing mechanisms) | Project board to track current status | List of features and bug fixes included on each iteration/release |
 
 ## License
 **MIT**

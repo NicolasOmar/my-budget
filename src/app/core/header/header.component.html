@@ -1,14 +1,31 @@
 <div class="ui menu">
-  <div class="header item">
-    Our Company
+  <div class="left menu">
+    <div class="header item">
+      <i class="angular icon"></i>
+      MyBudget Angular
+    </div>
   </div>
-  <a class="item">
-    About Us
-  </a>
-  <a class="item">
-    Jobs
-  </a>
-  <a class="item">
-    Locations
-  </a>
+  
+  <div class="right menu">
+    <div class="ui simple dropdown item">
+      {{ userName }}
+      <i class="dropdown icon"></i>
+      
+      <div class="menu">
+        <div class="item">
+          <i class="pencil alternate icon"></i>
+          Change info
+        </div>
+        <div class="item">
+          <i class="lock icon"></i>
+          Change password
+        </div>
+        <div class="divider"></div>
+        <div class="item">
+          <i class="sign-out icon"></i>
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
