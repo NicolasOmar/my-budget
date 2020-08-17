@@ -20,9 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.authService.autoLogIn();
 
     this.sub = this.authService.loggedUser.subscribe(userResponse => {
-      if (userResponse) {
-        this.loggedUser = userResponse;
-      }
+      this.loggedUser = userResponse || null;
     });
   }
 

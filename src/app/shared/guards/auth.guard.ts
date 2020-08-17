@@ -26,9 +26,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       take(1),
       map(user => {
         return !!user
-          ? route.url[0].path === 'auth'
+          ? this.isAuthPath(route.url[0].path)
             ? this.router.createUrlTree(['welcome'])
             : true
+          : this.isAuthPath(route.url[0].path)
+          ? true
           : this.router.createUrlTree(['auth']);
       })
     );
@@ -39,5 +41,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.canActivate(route, state);
+  }
+
+  private isAuthPath(path) {
+    return path === 'auth';
   }
 }

@@ -7,11 +7,11 @@ import { AuthRoutingModule } from './auth-routing.module';
 // MODULES
 import { SharedModule } from '../shared/shared.module';
 // COMPONENTS
-import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [LoginComponent, SignUpComponent],
   imports: [
     CommonModule,
     FormsModule,

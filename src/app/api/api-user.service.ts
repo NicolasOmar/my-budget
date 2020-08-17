@@ -17,8 +17,15 @@ interface UserPayload {
 export class ApiUserService {
   constructor(private http: HttpClient) {}
 
-  public logIn(user: UserPayload) {
+  public logIn(user: UserPayload): any {
     return this.http.post(`${environment.API_URL}/users/login`, user).pipe(
+      catchError(error => throwError(this.parseError(error))),
+      tap(response => response)
+    );
+  }
+
+  public logOut(): any {
+    return this.http.post(`${environment.API_URL}/users/logoutAll`, {}).pipe(
       catchError(error => throwError(this.parseError(error))),
       tap(response => response)
     );

@@ -16,10 +16,10 @@ export class AuthService {
 
   public logIn(user: UserPayload): Observable<UserResponse> {
     return this.apiUserService.logIn(user).pipe(
-      tap((data: UserResponse) => {
+      tap((response: UserResponse) => {
         const formedObj = {
-          ...data.userLogged,
-          token: data.token
+          ...response.userLogged,
+          token: response.token
         };
 
         this.setLocalUser(formedObj);
@@ -28,15 +28,30 @@ export class AuthService {
     );
   }
 
-  public autoLogIn() {
+  public logOut(): any {
+    return this.apiUserService.logOut().pipe(
+      tap(response => {
+        this.setLocalUser(null);
+        return response;
+      })
+    );
+  }
+
+  public clearUser(): void {
+    this.loggedUser.next(null);
+  }
+
+  public autoLogIn(): void {
     const userData: UserModel = this.getLocalUser();
     if (userData) {
       this.loggedUser.next(userData);
     }
   }
 
-  private setLocalUser(userData: UserModel) {
-    localStorage.setItem('userData', JSON.stringify(userData));
+  private setLocalUser(userData: UserModel | null): void {
+    userData
+      ? localStorage.setItem('userData', JSON.stringify(userData))
+      : localStorage.removeItem('userData');
   }
 
   private getLocalUser(): UserModel | null {
