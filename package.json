@@ -12,6 +12,7 @@
     "prettier": "prettier --write src",
     "tsc": "tsc",
     "e2e": "ng e2e",
+    "preinstall": "node config.js",
     "postinstall": "ng build --aot --prod"
   },
   "author": "Nicolás Omar González Passerino",
@@ -67,8 +68,7 @@
   "lint-staged": {
     "src/**/!(*spec).ts": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "husky": {
