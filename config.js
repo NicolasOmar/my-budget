@@ -8,10 +8,20 @@ export const environment = {
 
 fs.writeFile(
   './src/environments/environment.ts',
-  envConfigFile
+  envConfigFile,
+  function (err) {
+    if (err) {
+      console.log(err)
+    }
+  }
 )
 
 fs.writeFile(
   './src/environments/environment.prod.ts',
-  envConfigFile
+  envConfigFile,
+  function (err) {
+    if (err) {
+      console.log(err)
+    }
+  }
 )
