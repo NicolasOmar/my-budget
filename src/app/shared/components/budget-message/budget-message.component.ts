@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // INTERFACES
-import { Message } from '../../interfaces/message.interface';
+import { Message } from '@shared/interfaces/message.interface';
 // ENUMS
-import { MessageStateEnum } from '../../enums/states.enum';
+import { MessageStateEnum } from '@shared/enums/states.enum';
 
 @Component({
   selector: 'budget-message',

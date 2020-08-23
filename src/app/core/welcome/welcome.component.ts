@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 // SERVICES
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from '@auth/services/auth.service';
 // INTERFACES
-import { UserModel } from 'src/app/shared/interfaces/user.interface';
+import { UserModel } from '@auth/interfaces/user.interface';
 
 @Component({
   selector: 'budget-welcome',
@@ -16,13 +16,13 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.sub = this.authService.loggedUser.subscribe((response: UserModel) => {
       this.userName = response ? `${response.name} ${response.lastName}` : null;
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 }

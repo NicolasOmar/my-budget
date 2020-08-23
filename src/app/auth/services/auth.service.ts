@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 // API SERVICES
-import { ApiUserService } from 'src/app/api/api-user.service';
+import { ApiUserService } from '@api/api-user.service';
 // INTERFACES
-import { UserPayload, UserModel, UserResponse } from '../interfaces/user.interface';
+import { UserPayload, UserModel, UserResponse } from '@auth/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +28,9 @@ export class AuthService {
     );
   }
 
-  public logOut(): any {
+  public logOut(): Observable<boolean> {
     return this.apiUserService.logOut().pipe(
-      tap(response => {
+      tap((response: boolean) => {
         this.setLocalUser(null);
         return response;
       })

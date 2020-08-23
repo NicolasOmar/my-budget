@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 // ENUMS
-import { ErrorEnum } from '../shared/enums/errors.enum';
+import { ErrorEnum } from '../app/shared/enums/errors.enum';
 
 interface UserPayload {
   email: string;
@@ -17,14 +17,14 @@ interface UserPayload {
 export class ApiUserService {
   constructor(private http: HttpClient) {}
 
-  public logIn(user: UserPayload): any {
+  public logIn(user: UserPayload): Observable<unknown> {
     return this.http.post(`${environment.API_URL}/users/login`, user).pipe(
       catchError(error => throwError(this.parseError(error))),
       tap(response => response)
     );
   }
 
-  public logOut(): any {
+  public logOut(): Observable<unknown> {
     return this.http.post(`${environment.API_URL}/users/logoutAll`, {}).pipe(
       catchError(error => throwError(this.parseError(error))),
       tap(response => response)
@@ -36,7 +36,7 @@ export class ApiUserService {
       case 0:
         return ErrorEnum.NO_SERVER;
       default:
-        return error.error;
+        return error.error.message;
     }
   }
 }

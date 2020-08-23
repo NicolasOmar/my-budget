@@ -4,10 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // COMPONENTS
 import { BudgetMessageComponent } from './components/budget-message/budget-message.component';
 import { BudgetInputComponent } from './components/budget-input/budget-input.component';
+import { BudgetActionsComponent } from './components/budget-actions/budget-actions.component';
+
+const COMPONENTS = [BudgetMessageComponent, BudgetInputComponent, BudgetActionsComponent];
 
 @NgModule({
-  declarations: [BudgetMessageComponent, BudgetInputComponent],
+  declarations: [...COMPONENTS],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  exports: [BudgetMessageComponent, BudgetInputComponent]
+  exports: [...COMPONENTS]
 })
 export class SharedModule {}

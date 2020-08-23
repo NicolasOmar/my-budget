@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// GUARDS
+import { AuthGuard } from '@shared/guards/auth.guard';
 // COMPONENTS
-import { WelcomeComponent } from './core/welcome/welcome.component';
-import { AuthGuard } from './shared/guards/auth.guard';
+import { WelcomeComponent } from '@core/welcome/welcome.component';
 
 const routes: Routes = [
   {

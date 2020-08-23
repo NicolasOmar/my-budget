@@ -1,8 +1,10 @@
-.ui.middle.aligned.grid {
-  height: 100vh;
-  width: 100%;
-
-  .column {
+div.ui.one.column.centered.grid {
+  div.column.name-column {
+    margin: 35px 0 25px 0;
     text-align: center;
+  }
+
+  div.ui.cards {
+    justify-content: center;
   }
 }

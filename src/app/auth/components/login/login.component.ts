@@ -3,9 +3,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 // API SERVICES
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { Message } from '../../shared/interfaces/message.interface';
-import { MessageStateEnum } from 'src/app/shared/enums/states.enum';
+import { AuthService } from '@auth/services/auth.service';
+import { ErrorService } from '@shared/services/error.service';
+// INTERFACES
+import { Message } from '@shared/interfaces/message.interface';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   public errorMsg: Message = null;
   public isLoading = false;
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private errorService: ErrorService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -38,11 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         },
         error => {
           this.isLoading = false;
-          this.errorMsg = {
-            title: 'Ops!',
-            type: MessageStateEnum.ERROR,
-            paragraph: [error]
-          };
+          this.errorMsg = this.errorService.sendObj(error);
         }
       );
     }

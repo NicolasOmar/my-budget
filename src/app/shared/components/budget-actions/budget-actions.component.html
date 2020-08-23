@@ -1,0 +1,10 @@
+<div class="ui centered card" *ngFor="let module of modules">
+  <div class="content">
+    <div class="center aligned header">{{ module.title }}</div>
+    <div class="center aligned description">{{ module.description }}</div>
+  </div>
+  <div class="ui bottom attached button" *ngFor="let action of module.actions">
+    <i class="icon" [ngClass]="action.icon"></i>
+    {{ action.title }}
+  </div>
+</div>
