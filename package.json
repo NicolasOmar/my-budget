@@ -1,18 +1,19 @@
 {
   "name": "my-budget-angular",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Angular web application based for administrate earnings and expenses",
   "scripts": {
     "ng": "ng",
-    "start": "node config-env.js && ng build --aot --prod && node run-server.js",
+    "start": "node run-server.js",
     "test": "ng test",
-    "tsc": "tsc",
     "e2e": "ng e2e",
     "local": "ng serve --o",
     "setup": "npm i -g @angular/cli && npm i",
+    "tsc": "tsc",
     "lint": "eslint --fix src/**/*.ts",
     "prettier": "prettier --write src",
-    "update-version": "node update-version.js"
+    "update-version": "node update-version.js",
+    "postinstall": "node config-env.js && ng build --aot --prod"
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",
@@ -66,10 +67,9 @@
   },
   "lint-staged": {
     "src/**/!(*spec).ts": [
-      "prettier --write",
       "eslint --fix"
     ],
-    "src/**/*.scss": [
+    "src/**/*.(ts|scss)": [
       "prettier --write"
     ]
   },

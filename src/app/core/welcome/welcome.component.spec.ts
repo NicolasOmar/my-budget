@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WelcomeComponent } from './welcome.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+// SERVICES
+import { AuthService } from '@auth/services/auth.service';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -8,7 +11,9 @@ describe('WelcomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [WelcomeComponent]
+      declarations: [WelcomeComponent],
+      imports: [HttpClientModule, RouterTestingModule],
+      providers: [AuthService]
     }).compileComponents();
   }));
 
