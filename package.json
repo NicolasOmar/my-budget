@@ -1,10 +1,10 @@
 {
   "name": "my-budget-angular",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Angular web application based for administrate earnings and expenses",
   "scripts": {
     "ng": "ng",
-    "start": "node config.env.js && ng build --aot --prod && node run-server.js",
+    "start": "node config-env.js && ng build --aot --prod && node run-server.js",
     "test": "ng test",
     "tsc": "tsc",
     "e2e": "ng e2e",
@@ -70,8 +70,7 @@
       "eslint --fix"
     ],
     "src/**/*.scss": [
-      "prettier --write",
-      "eslint --fix"
+      "prettier --write"
     ]
   },
   "husky": {
