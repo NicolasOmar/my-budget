@@ -1,14 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "paths": {
-      "@api/*": ["src/api/*"],
-      "@core/*": ["src/app/core/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@auth/*": ["src/app/auth/*"],
-      "@users/*": ["src/app/users/*"]
-    }
+    "outDir": "./out-tsc/app"
   },
   "files": [
     "src/main.ts",
