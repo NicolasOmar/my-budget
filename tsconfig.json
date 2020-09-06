@@ -16,6 +16,7 @@
       "dom"
     ],
     "paths": {
+      "@mocks/*": ["src/mocks/*"],
       "@api/*": ["src/api/*"],
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],

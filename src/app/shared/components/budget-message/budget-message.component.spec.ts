@@ -25,7 +25,7 @@ xdescribe('BudgetMessageComponent', () => {
       title: 'test',
       type: errorType
     };
-    console.warn(component);
+
     expect(component).toBeTruthy();
   });
 });

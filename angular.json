@@ -96,7 +96,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "codeCoverage": true
           }
         },
         "lint": {
