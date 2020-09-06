@@ -96,7 +96,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "codeCoverage": true
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "src/mocks/**",
+              "src/environments/**",
+              "src/assets/**"
+            ]
           }
         },
         "lint": {

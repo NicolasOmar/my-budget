@@ -23,6 +23,6 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.sub && this.sub.unsubscribe();
   }
 }
