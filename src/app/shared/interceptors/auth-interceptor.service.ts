@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { take, exhaustMap } from 'rxjs/operators';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

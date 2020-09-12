@@ -38,8 +38,8 @@ describe('WelcomeComponent', () => {
   it('should create with user name data', () => {
     const userNameTest = `${userLoggedMock.name} ${userLoggedMock.lastName}`;
     expect(component).toBeTruthy();
-    expect(component.userName).toBe(userNameTest)
+    expect(component.userName).toBe(userNameTest);
     expect(element.querySelector('budget-actions')).toBeTruthy();
-    expect(element.querySelector('.label').innerHTML.trim()).toBe(userNameTest)
+    expect(element.querySelector('.label').innerHTML.trim()).toBe(userNameTest);
   });
 });

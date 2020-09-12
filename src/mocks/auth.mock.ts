@@ -1,4 +1,5 @@
-import { of, BehaviorSubject } from 'rxjs';
+import { of, BehaviorSubject, Observable } from 'rxjs';
+// INTERFACES
 import { UserModel } from '@auth/interfaces/user.interface';
 
 export const userLoggedMock: UserModel = {
@@ -9,7 +10,7 @@ export const userLoggedMock: UserModel = {
 
 export class AuthMock {
   public loggedUser = new BehaviorSubject<UserModel>(userLoggedMock);
-  public logIn() {
+  public logIn(): Observable<{ userLogged: UserModel; token: string }> {
     return of({
       userLogged: userLoggedMock,
       token: null

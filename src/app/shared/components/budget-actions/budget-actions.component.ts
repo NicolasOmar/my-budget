@@ -9,14 +9,12 @@ import { Module } from '@shared/interfaces/actions.interface';
   templateUrl: './budget-actions.component.html',
   styleUrls: ['./budget-actions.component.scss']
 })
-export class BudgetActionsComponent implements OnInit{
+export class BudgetActionsComponent implements OnInit {
   public modules: Array<Module>;
 
-  constructor(
-    private actionService: ActionsService
-  ) {}
+  constructor(private actionService: ActionsService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.modules = this.actionService.returnMainActions();
   }
 }

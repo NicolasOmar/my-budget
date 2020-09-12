@@ -67,7 +67,7 @@
     "npm": "6.13.7"
   },
   "lint-staged": {
-    "src/**/!.ts": [
+    "src/**/*.ts": [
       "eslint --fix",
       "prettier --write"
     ],

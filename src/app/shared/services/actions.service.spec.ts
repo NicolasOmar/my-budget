@@ -16,9 +16,9 @@ describe('ActionsService', () => {
 
   it('should bring main actions', () => {
     const [result] = service.returnMainActions();
-    
+
     expect(result.title).toBe('Users');
     expect(result.description).toBe('Actions related to user data');
     expect(result.actions.length).toBeGreaterThan(0);
-  })
+  });
 });
