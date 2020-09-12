@@ -1,6 +1,6 @@
 {
   "name": "my-budget-angular",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Angular web application based for administrate earnings and expenses",
   "scripts": {
     "ng": "ng",
@@ -67,10 +67,11 @@
     "npm": "6.13.7"
   },
   "lint-staged": {
-    "src/**/!(*spec).ts": [
-      "eslint --fix"
+    "src/**/!.ts": [
+      "eslint --fix",
+      "prettier --write"
     ],
-    "src/**/*.(ts|scss)": [
+    "src/**/*.scss": [
       "prettier --write"
     ]
   },

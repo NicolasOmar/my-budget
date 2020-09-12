@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+// COMPONENT
 import { BudgetActionsComponent } from './budget-actions.component';
 
 describe('BudgetActionsComponent', () => {
