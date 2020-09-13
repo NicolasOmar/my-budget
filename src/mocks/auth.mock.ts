@@ -1,12 +1,8 @@
 import { of, BehaviorSubject, Observable } from 'rxjs';
 // INTERFACES
 import { UserModel } from '@auth/interfaces/user.interface';
-
-export const userLoggedMock: UserModel = {
-  name: 'John',
-  lastName: 'Doe',
-  email: 'john.doe@test.com'
-};
+// MOCKS
+import { userLoggedMock } from './user.mock';
 
 export class AuthMock {
   public loggedUser = new BehaviorSubject<UserModel>(userLoggedMock);
@@ -15,5 +11,13 @@ export class AuthMock {
       userLogged: userLoggedMock,
       token: null
     });
+  }
+
+  public autoLogIn(): Observable<null> {
+    return of(null);
+  }
+
+  public clearUser(): void {
+    return null;
   }
 }

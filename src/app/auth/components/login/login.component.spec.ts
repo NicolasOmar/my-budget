@@ -28,4 +28,10 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should fire logIn function and nullify error message', () => {
+    component.closeMessage();
+    fixture.detectChanges();
+    expect(component.errorMsg).toBeNull();
+  });
 });

@@ -1,6 +1,6 @@
 {
   "name": "my-budget-angular",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Angular web application based for administrate earnings and expenses",
   "scripts": {
     "ng": "ng",

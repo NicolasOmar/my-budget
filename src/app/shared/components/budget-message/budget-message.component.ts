@@ -16,14 +16,16 @@ export class BudgetMessageComponent implements OnInit {
   public messageStyle: string;
 
   ngOnInit(): void {
+    this.setMessageStyle();
+  }
+
+  private setMessageStyle() {
     switch (this.message.type) {
       case MessageStateEnum.ERROR:
         this.messageStyle = 'negative';
         break;
       case MessageStateEnum.SUCCESS:
         this.messageStyle = 'success';
-        break;
-      default:
         break;
     }
   }

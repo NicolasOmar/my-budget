@@ -3,13 +3,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+// INTERFACES
+import { UserPayload } from '@auth/interfaces/user.interface';
 // ENUMS
-import { ErrorEnum } from '../app/shared/enums/errors.enum';
-
-interface UserPayload {
-  email: string;
-  password: string;
-}
+import { ErrorEnum } from '@shared/enums/errors.enum';
 
 @Injectable({
   providedIn: 'root'
