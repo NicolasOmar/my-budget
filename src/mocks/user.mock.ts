@@ -1,4 +1,4 @@
-import { UserModel, UserPayload } from '@auth/interfaces/user.interface';
+import { UserModel, UserPayload } from '@shared/interfaces/user.interface';
 
 export const userLoggedMock: UserModel = {
   name: 'John',

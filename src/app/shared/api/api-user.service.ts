@@ -4,7 +4,9 @@ import { environment } from 'src/environments/environment';
 import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 // INTERFACES
-import { UserPayload } from '@auth/interfaces/user.interface';
+import { UserPayload } from '@shared/interfaces/user.interface';
+// CONSTANTS
+import { USER_ROUTES } from '@shared/constants/routes.const';
 // ENUMS
 import { ErrorEnum } from '@shared/enums/errors.enum';
 
@@ -15,14 +17,14 @@ export class ApiUserService {
   constructor(private http: HttpClient) {}
 
   public logIn(user: UserPayload): Observable<unknown> {
-    return this.http.post(`${environment.API_URL}/users/login`, user).pipe(
+    return this.http.post(`${environment.API_URL}/${USER_ROUTES.LOGIN}`, user).pipe(
       catchError(error => throwError(this.parseError(error))),
       tap(response => response)
     );
   }
 
   public logOut(): Observable<unknown> {
-    return this.http.post(`${environment.API_URL}/users/logoutAll`, {}).pipe(
+    return this.http.post(`${environment.API_URL}/${USER_ROUTES.LOGOUT_ALL}`, {}).pipe(
       catchError(error => throwError(this.parseError(error))),
       tap(response => response)
     );

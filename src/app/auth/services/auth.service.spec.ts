@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ApiUserService } from '@api/api-user.service';
+import { ApiUserService } from '@shared/api/api-user.service';
 import { ApiUserMock } from '@mocks/api-user.mock';
 import { userObj, userLoggedMock } from '@mocks/user.mock';
 

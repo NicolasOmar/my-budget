@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 // API SERVICES
-import { ApiUserService } from '@api/api-user.service';
+import { ApiUserService } from '@shared/api/api-user.service';
 // INTERFACES
-import { UserPayload, UserModel, UserResponse } from '@auth/interfaces/user.interface';
+import { UserPayload, UserModel, UserResponse } from '@shared/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'

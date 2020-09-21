@@ -1,6 +1,6 @@
 import { of, BehaviorSubject, Observable } from 'rxjs';
 // INTERFACES
-import { UserModel } from '@auth/interfaces/user.interface';
+import { UserModel } from '@shared/interfaces/user.interface';
 // MOCKS
 import { userLoggedMock } from './user.mock';
 

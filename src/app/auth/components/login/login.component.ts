@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   public loginForm: FormGroup;
   public errorMsg: Message = null;
   public isLoading = false;
-  public signUpLink = ['signup'];
+  public signUpLink = ['sign-up'];
 
   constructor(
     private fb: FormBuilder,

@@ -32,7 +32,7 @@ export class BudgetInputComponent implements ControlValueAccessor, OnInit {
     this._value = val;
   }
 
-  public registerOnChange(fn: unknown) {
+  public registerOnChange(fn: any) {
     this.onChanged = fn;
   }
 

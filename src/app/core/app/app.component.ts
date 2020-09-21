@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
 // INTERFACES
-import { UserModel } from '@auth/interfaces/user.interface';
+import { UserModel } from '@shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-root',
