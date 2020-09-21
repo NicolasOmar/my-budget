@@ -9,7 +9,7 @@ import { ErrorService } from '@shared/services/error.service';
 import { Message } from '@shared/interfaces/message.interface';
 
 @Component({
-  selector: 'app-login',
+  selector: 'budget-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   public loginForm: FormGroup;
   public errorMsg: Message = null;
   public isLoading = false;
+  public signUpLink = ['signup'];
 
   constructor(
     private fb: FormBuilder,
@@ -28,8 +29,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: this.fb.control(null, Validators.required),
-      password: this.fb.control(null, [Validators.required, Validators.minLength(6)])
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6)]]
     });
   }
 

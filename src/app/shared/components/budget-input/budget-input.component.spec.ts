@@ -15,6 +15,9 @@ describe('BudgetInputComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BudgetInputComponent);
     component = fixture.componentInstance;
+    component.config = {
+      icon: 'mail'
+    };
     fixture.detectChanges();
   });
 

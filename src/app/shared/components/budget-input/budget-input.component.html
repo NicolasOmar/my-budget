@@ -1,1 +1,12 @@
-<p>budget-input works!</p>
+<div class="field input-content">
+  <div class="ui left icon input" [class.error]="invalid">
+    <input
+      [type]="config.inputType || 'text'"
+      [placeholder]="config.placeholder || ''"
+      [value]="_value"
+      (input)="onInput($event.target.value)"
+      (blur)="onTouched()"
+      >
+    <i *ngIf="config.icon" class="{{ config.icon }} icon"></i>
+  </div>
+</div>
