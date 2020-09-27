@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
+import { ErrorService } from '@shared/services/error.service';
+// INTERFACES
+import { Message } from '@shared/interfaces/message.interface';
 
 @Component({
   selector: 'budget-sign-up',
@@ -13,9 +16,17 @@ import { AuthService } from '@auth/services/auth.service';
 export class SignUpComponent implements OnInit, OnDestroy {
   private sub = new Subscription();
   public signUpForm: FormGroup;
+  public errorMsg: Message = null;
+  public isLoading = false;
+  public title = 'Sign up a new User';
   public formInputs;
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private errorService: ErrorService
+  ) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -23,13 +34,24 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   public onSubmit(): void {
     const formData = this.signUpForm.getRawValue();
+    this.isLoading = true;
 
     this.sub.add(
       this.authService.signUp(formData).subscribe(
-        () => this.router.navigate(['/welcome']),
-        error => console.error(error)
+        () => {
+          this.isLoading = false;
+          this.router.navigate(['/welcome']);
+        },
+        error => {
+          this.isLoading = false;
+          this.errorMsg = this.errorService.sendObj(error);
+        }
       )
     );
+  }
+
+  public closeMessage(): void {
+    this.errorMsg = null;
   }
 
   private setForm(): void {

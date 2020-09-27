@@ -1,38 +1,48 @@
 <budget-layout>
-  <form
-    body
-    class="ui form"
-    [formGroup]="signUpForm"
-    (submit)="onSubmit()"
-  >
-    <div class="ui segment">
-      <budget-input
-        [config]="formInputs.name"
-        formControlName="name">
-      </budget-input>
-
-      <budget-input
-        [config]="formInputs.lastName"
-        formControlName="lastName">
-      </budget-input>
-
-      <budget-input
-        [config]="formInputs.email"
-        formControlName="email">
-      </budget-input>
-
-      <budget-input
-        [config]="formInputs.password"
-        formControlName="password">
-      </budget-input>
-    </div>
-
-    <button
-      type="submit"
-      class="ui fluid primary button"
-      [disabled]="!signUpForm.valid"
+  <div body>
+    <h2 class="ui center aligned header">{{ title }}</h2>
+    
+    <form
+      class="ui form"
+      [ngClass]="{'loading': isLoading}"
+      [formGroup]="signUpForm"
+      (submit)="onSubmit()"
     >
-      Login
-    </button>
-  </form>
+      <div class="ui segment">
+        <budget-input
+          [config]="formInputs.name"
+          formControlName="name">
+        </budget-input>
+
+        <budget-input
+          [config]="formInputs.lastName"
+          formControlName="lastName">
+        </budget-input>
+
+        <budget-input
+          [config]="formInputs.email"
+          formControlName="email">
+        </budget-input>
+
+        <budget-input
+          [config]="formInputs.password"
+          formControlName="password">
+        </budget-input>
+      </div>
+
+      <button
+        type="submit"
+        class="ui fluid primary button"
+        [disabled]="!signUpForm.valid"
+      >
+        Login
+      </button>
+    </form>
+      
+    <budget-message
+      *ngIf="errorMsg"
+      [message]="errorMsg"
+      (onClose)="closeMessage()">
+    </budget-message>
+  </div>
 </budget-layout>

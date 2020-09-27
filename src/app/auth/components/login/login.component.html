@@ -1,7 +1,6 @@
-<div class="ui middle aligned grid">
-  <div class="four wide column"></div>
-  <div class="eight wide column">
-    <h2 class="ui center aligned header">Welcome to MyBudget | Angular</h2>
+<budget-layout>
+  <div body>
+    <h2 class="ui center aligned header">{{ title }}</h2>
 
     <form
       class="ui form"
@@ -38,17 +37,16 @@
       >
         Login
       </button>
-      
-      <budget-message
-        *ngIf="errorMsg"
-        [message]="errorMsg"
-        (onClose)="closeMessage()">
-      </budget-message>
     </form>
 
-    <button type="submit" class="ui fluid button sign-up-button" [routerLink]="signUpLink">
+    <button type="button" class="ui fluid button sign-up-button" [routerLink]="signUpLink">
       Or you can Sign up
     </button>
+      
+    <budget-message
+      *ngIf="errorMsg"
+      [message]="errorMsg"
+      (onClose)="closeMessage()">
+    </budget-message>
   </div>
-  <div class="four wide column"></div>
-</div>
+</budget-layout>

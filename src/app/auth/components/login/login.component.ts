@@ -14,11 +14,12 @@ import { Message } from '@shared/interfaces/message.interface';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  private sub: Subscription;
+  private sub = new Subscription();
   public loginForm: FormGroup;
   public errorMsg: Message = null;
   public isLoading = false;
   public signUpLink = ['sign-up'];
+  public title = 'Welcome to MyBudget | Angular';
 
   constructor(
     private fb: FormBuilder,
@@ -28,25 +29,24 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.minLength(6)]]
-    });
+    this.setForm();
   }
 
   public onSubmit(): void {
     if (this.loginForm.valid && !this.isLoading) {
       this.isLoading = true;
 
-      this.sub = this.authService.logIn(this.loginForm.getRawValue()).subscribe(
-        () => {
-          this.isLoading = false;
-          this.router.navigate(['/welcome']);
-        },
-        error => {
-          this.isLoading = false;
-          this.errorMsg = this.errorService.sendObj(error);
-        }
+      this.sub.add(
+        this.authService.logIn(this.loginForm.getRawValue()).subscribe(
+          () => {
+            this.isLoading = false;
+            this.router.navigate(['/welcome']);
+          },
+          error => {
+            this.isLoading = false;
+            this.errorMsg = this.errorService.sendObj(error);
+          }
+        )
       );
     }
   }
@@ -55,7 +55,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.errorMsg = null;
   }
 
+  private setForm(): void {
+    this.loginForm = this.fb.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
   ngOnDestroy(): void {
-    this.sub && this.sub.unsubscribe();
+    this.sub.unsubscribe();
   }
 }
