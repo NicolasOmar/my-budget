@@ -1,41 +1,38 @@
-<div class="ui middle aligned grid">
-  <div class="four wide column"></div>
-  <div class="eight wide column">
-    <form
-      class="ui form"
-      [formGroup]="signUpForm"
-      (submit)="onSubmit()"
+<budget-layout>
+  <form
+    body
+    class="ui form"
+    [formGroup]="signUpForm"
+    (submit)="onSubmit()"
+  >
+    <div class="ui segment">
+      <budget-input
+        [config]="formInputs.name"
+        formControlName="name">
+      </budget-input>
+
+      <budget-input
+        [config]="formInputs.lastName"
+        formControlName="lastName">
+      </budget-input>
+
+      <budget-input
+        [config]="formInputs.email"
+        formControlName="email">
+      </budget-input>
+
+      <budget-input
+        [config]="formInputs.password"
+        formControlName="password">
+      </budget-input>
+    </div>
+
+    <button
+      type="submit"
+      class="ui fluid primary button"
+      [disabled]="!signUpForm.valid"
     >
-      <div class="ui segment">
-        <budget-input
-          [config]="formInputs.name"
-          formControlName="name">
-        </budget-input>
-
-        <budget-input
-          [config]="formInputs.lastName"
-          formControlName="lastName">
-        </budget-input>
-
-        <budget-input
-          [config]="formInputs.email"
-          formControlName="email">
-        </budget-input>
-
-        <budget-input
-          [config]="formInputs.password"
-          formControlName="password">
-        </budget-input>
-      </div>
-
-      <button
-        type="submit"
-        class="ui fluid primary button"
-        [disabled]="!signUpForm.valid"
-      >
-        Login
-      </button>
-    </form>
-  </div>
-  <div class="four wide column"></div>
-</div>
+      Login
+    </button>
+  </form>
+</budget-layout>

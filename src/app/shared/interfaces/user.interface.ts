@@ -8,10 +8,12 @@ export interface UserModel {
 export interface UserPayload {
   email: string;
   password: string;
+  name?: string;
+  lastName?: string;
 }
 
 export interface UserResponse {
   newUser?: UserModel;
-  userLogged: UserModel;
+  userLogged?: UserModel;
   token: string;
 }

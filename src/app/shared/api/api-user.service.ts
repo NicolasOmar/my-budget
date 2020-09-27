@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 // INTERFACES
-import { UserPayload } from '@shared/interfaces/user.interface';
+import { UserPayload, UserResponse } from '@shared/interfaces/user.interface';
 // CONSTANTS
 import { USER_ROUTES } from '@shared/constants/routes.const';
 // ENUMS
@@ -16,17 +16,24 @@ import { ErrorEnum } from '@shared/enums/errors.enum';
 export class ApiUserService {
   constructor(private http: HttpClient) {}
 
-  public logIn(user: UserPayload): Observable<unknown> {
+  public logIn(user: UserPayload): Observable<UserResponse> {
     return this.http.post(`${environment.API_URL}/${USER_ROUTES.LOGIN}`, user).pipe(
       catchError(error => throwError(this.parseError(error))),
-      tap(response => response)
+      tap((response: UserResponse) => response)
     );
   }
 
-  public logOut(): Observable<unknown> {
+  public logOut(): Observable<boolean> {
     return this.http.post(`${environment.API_URL}/${USER_ROUTES.LOGOUT_ALL}`, {}).pipe(
       catchError(error => throwError(this.parseError(error))),
-      tap(response => response)
+      tap((response: boolean) => response)
+    );
+  }
+
+  public signUp(user: UserPayload): Observable<UserResponse> {
+    return this.http.post(`${environment.API_URL}/${USER_ROUTES.MAIN}`, user).pipe(
+      catchError(error => throwError(this.parseError(error))),
+      tap((response: UserResponse) => response)
     );
   }
 

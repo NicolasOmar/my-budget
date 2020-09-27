@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import * as bcrypt from 'bcryptjs';
 // API SERVICES
 import { ApiUserService } from '@shared/api/api-user.service';
 // INTERFACES
@@ -17,13 +18,7 @@ export class AuthService {
   public logIn(user: UserPayload): Observable<UserResponse> {
     return this.apiUserService.logIn(user).pipe(
       tap((response: UserResponse) => {
-        const formedObj = {
-          ...response.userLogged,
-          token: response.token
-        };
-
-        this.setLocalUser(formedObj);
-        this.loggedUser.next(formedObj);
+        this.handleLogin(response);
       })
     );
   }
@@ -33,6 +28,18 @@ export class AuthService {
       tap((response: boolean) => {
         this.setLocalUser(null);
         return response;
+      })
+    );
+  }
+
+  public signUp(user: UserPayload): Observable<UserResponse> {
+    user = {
+      ...user,
+      password: bcrypt.hashSync(user.password, 8)
+    };
+    return this.apiUserService.signUp(user).pipe(
+      tap((response: UserResponse) => {
+        this.handleLogin(response);
       })
     );
   }
@@ -56,5 +63,15 @@ export class AuthService {
 
   private getLocalUser(): UserModel | null {
     return JSON.parse(localStorage.getItem('userData'));
+  }
+
+  private handleLogin(response: UserResponse): void {
+    const formedObj = {
+      ...response.newUser,
+      token: response.token
+    };
+
+    this.setLocalUser(formedObj);
+    this.loggedUser.next(formedObj);
   }
 }

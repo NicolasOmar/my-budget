@@ -27,6 +27,7 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "rxjs": "~6.5.4",
     "semantic-ui-css": "^2.4.1",
@@ -66,10 +67,22 @@
     "node": "12.16.1",
     "npm": "6.13.7"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "crypto": false,
+    "stream": false,
+    "http": false,
+    "tls": false,
+    "zlib": false,
+    "https": false,
+    "net": false
+  },
   "lint-staged": {
     "src/**/*.ts": [
-      "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "eslint --fix"
     ],
     "src/**/*.scss": [
       "prettier --write"

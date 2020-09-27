@@ -1,7 +1,7 @@
 <div class="field input-content">
   <div class="ui left icon input" [class.error]="invalid">
     <input
-      [type]="config.inputType || 'text'"
+      [type]="config.type || 'text'"
       [placeholder]="config.placeholder || ''"
       [value]="_value"
       (input)="onInput($event.target.value)"

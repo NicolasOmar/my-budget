@@ -5,8 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BudgetMessageComponent } from './components/budget-message/budget-message.component';
 import { BudgetInputComponent } from './components/budget-input/budget-input.component';
 import { BudgetActionsComponent } from './components/budget-actions/budget-actions.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
-const COMPONENTS = [BudgetMessageComponent, BudgetInputComponent, BudgetActionsComponent];
+const COMPONENTS = [
+  BudgetMessageComponent,
+  BudgetInputComponent,
+  BudgetActionsComponent,
+  LayoutComponent
+];
 
 @NgModule({
   declarations: [...COMPONENTS],

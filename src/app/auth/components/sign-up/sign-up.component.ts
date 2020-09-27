@@ -1,33 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+// SERVICES
+import { AuthService } from '@auth/services/auth.service';
 
 @Component({
   selector: 'budget-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit, OnDestroy {
+  private sub = new Subscription();
   public signUpForm: FormGroup;
   public formInputs;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.setForm();
   }
 
   public onSubmit(): void {
-    console.warn(this.signUpForm.getRawValue(), this.signUpForm.valid);
+    const formData = this.signUpForm.getRawValue();
+
+    this.sub.add(
+      this.authService.signUp(formData).subscribe(
+        () => this.router.navigate(['/welcome']),
+        error => console.error(error)
+      )
+    );
   }
 
   private setForm(): void {
     this.formInputs = {
       name: {
-        icon: 'mail',
+        icon: 'address book',
         placeholder: 'Name'
       },
       lastName: {
-        icon: 'mail',
+        icon: 'address book',
         placeholder: 'Last Name'
       },
       email: {
@@ -35,8 +47,9 @@ export class SignUpComponent implements OnInit {
         placeholder: 'Email'
       },
       password: {
-        icon: 'mail',
-        placeholder: 'Password'
+        icon: 'key',
+        placeholder: 'Password',
+        type: 'password'
       }
     };
 
@@ -46,5 +59,9 @@ export class SignUpComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]]
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }
