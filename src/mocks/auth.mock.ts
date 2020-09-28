@@ -28,4 +28,8 @@ export class AuthMock {
   public clearUser(): void {
     return null;
   }
+
+  public logOut(): Observable<boolean> {
+    return of(true);
+  }
 }

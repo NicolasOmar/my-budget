@@ -12,21 +12,17 @@ import { UserModel } from '@shared/interfaces/user.interface';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  private subs: Subscription[] = [];
+  private sub = new Subscription();
   public userName: string = null;
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(public router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.subs.push(
-      this.authService.loggedUser.subscribe((response: UserModel) => {
-        this.userName = response ? `${response.name} ${response.lastName}` : null;
-      })
-    );
+    this.initUser();
   }
 
   public onLogout(): void {
-    this.subs.push(
+    this.sub.add(
       this.authService.logOut().subscribe(() => {
         this.authService.clearUser();
         this.router.navigate(['/auth']);
@@ -34,7 +30,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
   }
 
+  private initUser(): void {
+    this.sub.add(
+      this.authService.loggedUser.subscribe((response: UserModel) => {
+        this.userName = response ? `${response.name} ${response.lastName}` : null;
+      })
+    );
+  }
+
   ngOnDestroy(): void {
-    this.subs.forEach(sub => sub.unsubscribe());
+    this.sub.unsubscribe();
   }
 }
