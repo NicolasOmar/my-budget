@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
 import { ErrorService } from '@shared/services/error.service';
+import { AuthInputsService } from '@auth/services/auth-inputs.service';
 // INTERFACES
 import { Message } from '@shared/interfaces/message.interface';
 
@@ -18,6 +19,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   public signUpForm: FormGroup;
   public errorMsg: Message = null;
   public isLoading = false;
+  public signUpLink = ['/'];
   public title = 'Sign up a new User';
   public formInputs;
 
@@ -25,6 +27,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private inputService: AuthInputsService,
     private errorService: ErrorService
   ) {}
 
@@ -55,25 +58,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   private setForm(): void {
-    this.formInputs = {
-      name: {
-        icon: 'address book',
-        placeholder: 'Name'
-      },
-      lastName: {
-        icon: 'address book',
-        placeholder: 'Last Name'
-      },
-      email: {
-        icon: 'mail',
-        placeholder: 'Email'
-      },
-      password: {
-        icon: 'key',
-        placeholder: 'Password',
-        type: 'password'
-      }
-    };
+    this.formInputs = this.inputService.signUpInputs;
 
     this.signUpForm = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(3)]],

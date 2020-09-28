@@ -4,10 +4,15 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 // MODULES
 import { SharedModule } from '@shared/shared.module';
-// COMPONENT
+// COMPONENTS
 import { SignUpComponent } from './sign-up.component';
+// SERVICES
+import { AuthService } from '@auth/services/auth.service';
+import { ErrorService } from '@shared/services/error.service';
 // MOCKS
 import { formInputs } from '@mocks/sign-up.mock';
+import { AuthMock } from '@mocks/auth.mock';
+import { newUserMock } from '@mocks/user.mock';
 
 describe('SignUpComponent', () => {
   let component: SignUpComponent;
@@ -23,7 +28,14 @@ describe('SignUpComponent', () => {
         ReactiveFormsModule,
         SharedModule
       ],
-      providers: [FormBuilder]
+      providers: [
+        FormBuilder,
+        {
+          provider: AuthService,
+          useClass: AuthMock
+        },
+        ErrorService
+      ]
     }).compileComponents();
   }));
 
@@ -37,5 +49,21 @@ describe('SignUpComponent', () => {
     fixture.detectChanges();
 
     expect(component).toBeTruthy();
+  });
+
+  it('should fill form data and submit changes', () => {
+    component.ngOnInit();
+    component.signUpForm.patchValue(newUserMock);
+    component.onSubmit();
+    fixture.detectChanges();
+
+    // expect(component.isLoading).toBeFalsy();
+    expect(component.errorMsg).toBeNull();
+  });
+
+  it('should fire logIn function and nullify error message', () => {
+    component.closeMessage();
+    fixture.detectChanges();
+    expect(component.errorMsg).toBeNull();
   });
 });

@@ -67,7 +67,7 @@ export class AuthService {
 
   private handleLogin(response: UserResponse): void {
     const formedObj = {
-      ...response.newUser,
+      ...(response.newUser || response.userLogged),
       token: response.token
     };
 

@@ -95,7 +95,7 @@
             ],
             "codeCoverage": true,
             "codeCoverageExclude": [
-              "src/api/**",
+              "src/app/**/api/**",
               "src/mocks/**",
               "src/environments/**",
               "src/assets/**"

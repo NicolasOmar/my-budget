@@ -9,25 +9,15 @@
       (submit)="onSubmit()"
     >
       <div class="ui segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <input
-              type="email"
-              placeholder="Email"
-              formControlName="email">
-            <i class="mail icon"></i>
-          </div>
-        </div>
+        <budget-input
+          [config]="formInputs.email"
+          formControlName="email">
+        </budget-input>
         
-        <div class="field">
-          <div class="ui left icon input">
-            <input
-              type="password"
-              placeholder="Password"
-              formControlName="password">
-            <i class="key icon"></i>
-          </div>
-        </div>
+        <budget-input
+          [config]="formInputs.password"
+          formControlName="password">
+        </budget-input>
       </div>
 
       <button
@@ -37,11 +27,15 @@
       >
         Login
       </button>
-    </form>
 
-    <button type="button" class="ui fluid button sign-up-button" [routerLink]="signUpLink">
-      Or you can Sign up
-    </button>
+      <button
+        type="button"
+        class="ui violet tertiary button sign-up-button"
+        [routerLink]="signUpLink"
+      >
+        Or you can Sign up
+      </button>
+    </form>
       
     <budget-message
       *ngIf="errorMsg"

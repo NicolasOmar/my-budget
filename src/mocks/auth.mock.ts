@@ -6,9 +6,17 @@ import { userLoggedMock } from './user.mock';
 
 export class AuthMock {
   public loggedUser = new BehaviorSubject<UserModel>(userLoggedMock);
+
   public logIn(): Observable<{ userLogged: UserModel; token: string }> {
     return of({
       userLogged: userLoggedMock,
+      token: null
+    });
+  }
+
+  public signUp(): Observable<{ newUser: UserModel; token: string }> {
+    return of({
+      newUser: userLoggedMock,
       token: null
     });
   }

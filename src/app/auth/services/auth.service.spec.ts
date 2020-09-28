@@ -1,10 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-
-import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
+// SERVICES
+import { AuthService } from './auth.service';
 import { ApiUserService } from '@shared/api/api-user.service';
+// MOCKS
 import { ApiUserMock } from '@mocks/api-user.mock';
-import { userObj, userLoggedMock } from '@mocks/user.mock';
+import { userObjMock, userLoggedMock } from '@mocks/user.mock';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -35,7 +36,7 @@ describe('AuthService', () => {
   });
 
   it('should fire logIn function and have a logged user', done => {
-    service.logIn(userObj).subscribe(res => {
+    service.logIn(userObjMock).subscribe(res => {
       expect(res.userLogged).toBe(userLoggedMock);
       done();
     });
