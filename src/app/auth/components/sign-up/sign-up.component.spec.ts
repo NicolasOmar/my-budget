@@ -10,9 +10,9 @@ import { SignUpComponent } from './sign-up.component';
 import { AuthService } from '@auth/services/auth.service';
 import { ErrorService } from '@shared/services/error.service';
 // MOCKS
-import { formInputs } from '@mocks/sign-up.mock';
-import { AuthMock } from '@mocks/auth.mock';
-import { newUserMock } from '@mocks/user.mock';
+import { AuthMock } from '@mocks/services/auth.mock';
+import { formInputs } from '@mocks/data/sign-up.mock';
+import { newUserMock } from '@mocks/data/user.mock';
 
 describe('SignUpComponent', () => {
   let component: SignUpComponent;

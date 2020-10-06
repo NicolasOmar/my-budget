@@ -10,8 +10,8 @@ import { SharedModule } from '@shared/shared.module';
 import { AuthService } from '@auth/services/auth.service';
 import { ErrorService } from '@shared/services/error.service';
 // MOCKS
-import { AuthMock } from '@mocks/auth.mock';
-import { userObjMock } from '@mocks/user.mock';
+import { AuthMock } from '@mocks/services/auth.mock';
+import { userObjMock } from '@mocks/data/user.mock';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

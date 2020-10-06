@@ -3,7 +3,7 @@ import { BudgetMessageComponent } from './budget-message.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 // MOCKS
-import { badMessage, goodMessage } from '@mocks/messages.mock';
+import { badMessage, goodMessage } from '@mocks/data/messages.mock';
 
 describe('BudgetMessageComponent', () => {
   let component: BudgetMessageComponent;

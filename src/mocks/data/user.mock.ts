@@ -15,3 +15,8 @@ export const newUserMock: UserPayload = {
   ...userLoggedMock,
   ...userObjMock
 };
+
+export const badUserLoggedMock: UserPayload = {
+  ...userObjMock,
+  password: null
+};

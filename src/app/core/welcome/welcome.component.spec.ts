@@ -8,8 +8,8 @@ import { WelcomeComponent } from './welcome.component';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
 // MOCKS
-import { AuthMock } from '@mocks/auth.mock';
-import { userLoggedMock } from '@mocks/user.mock';
+import { AuthMock } from '@mocks/services/auth.mock';
+import { userLoggedMock } from '@mocks/data/user.mock';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;

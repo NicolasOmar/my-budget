@@ -11,3 +11,8 @@ export const goodMessage = {
   type: MessageStateEnum.SUCCESS,
   paragraph: []
 };
+
+export const errorMsgMock = {
+  login: 'Error in login',
+  signUp: 'Error in signup'
+};

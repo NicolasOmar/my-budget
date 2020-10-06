@@ -84,6 +84,8 @@ export class AuthService {
   }
 
   private encryptPass(pass: string): string {
-    return CryptoJS[environment.CRYPT_METH].encrypt(pass, environment.CRYPT_SECRET).toString();
+    return pass
+      ? CryptoJS[environment.CRYPT_METH].encrypt(pass, environment.CRYPT_SECRET).toString()
+      : null;
   }
 }
