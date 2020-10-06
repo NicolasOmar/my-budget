@@ -30,15 +30,15 @@ ng serve
 ## Branches and Environments
 To maintain a better code tracking in time, I decided to separate two branches with its respective environments.
 Those environments are being built and deployed on [Heroku](https://www.heroku.com/).
-| Branch | Environment | Usage |
-| ------ | ------ | ------ |
-| master | [mybudget-angular](https://mybudget-angular.herokuapp.com/) | Stable version |
-| in-progress | [mybudget-angular-dev](https://mybudget-angular-dev.herokuapp.com/) | Working on next iteration |
+| Branch | Version | Environment | Usage |
+| ------ | ------ | ------ | ------ |
+| master | ![MyBudget Angular (master version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/master?color=success&label=%20&style=flat-square) | [mybudget-angular](https://mybudget-angular.herokuapp.com/) | Stable version |
+| in-progress | ![MyBudget Angular (in-progress version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/in-progress?color=yellow&label=%20&style=flat-square) | [mybudget-angular-dev](https://mybudget-angular-dev.herokuapp.com/) | Working on next iteration |
 
 ## Find out more
-| [Documentation](https://nicolasomar.github.io/my-budget-docs) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) | [Changelog](https://github.com/NicolasOmar/my-budget-angular/blob/master/CHANGELOG.md) |
-| ----- | ----- | ----- |
-| Documentation related to project (objective, features & roadmap) & technical aspects (used packages, testing mechanisms) | Project board to track current status | List of features, improvements and bug fixes included on each iteration |
+| [Documentation](https://nicolasomar.github.io/my-budget-docs) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) |
+| ----- | ----- |
+| Documentation related to project (objective, features & roadmap) & technical aspects (used packages, testing mechanisms) | Project board to track current status |
 
 ## License
 **MIT**

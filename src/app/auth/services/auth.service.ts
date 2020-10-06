@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import * as bcrypt from 'bcryptjs';
+import * as CryptoJS from 'crypto-js';
+// ENVIRONMENT
+import { environment } from 'src/environments/environment';
 // API SERVICES
 import { ApiUserService } from '@shared/api/api-user.service';
 // INTERFACES
@@ -16,6 +18,11 @@ export class AuthService {
   constructor(private apiUserService: ApiUserService) {}
 
   public logIn(user: UserPayload): Observable<UserResponse> {
+    user = {
+      ...user,
+      password: this.encryptPass(user.password)
+    };
+
     return this.apiUserService.logIn(user).pipe(
       tap((response: UserResponse) => {
         this.handleLogin(response);
@@ -35,8 +42,9 @@ export class AuthService {
   public signUp(user: UserPayload): Observable<UserResponse> {
     user = {
       ...user,
-      password: bcrypt.hashSync(user.password, 8)
+      password: this.encryptPass(user.password)
     };
+
     return this.apiUserService.signUp(user).pipe(
       tap((response: UserResponse) => {
         this.handleLogin(response);
@@ -73,5 +81,9 @@ export class AuthService {
 
     this.setLocalUser(formedObj);
     this.loggedUser.next(formedObj);
+  }
+
+  private encryptPass(pass: string): string {
+    return CryptoJS[environment.CRYPT_METH].encrypt(pass, environment.CRYPT_SECRET).toString();
   }
 }
