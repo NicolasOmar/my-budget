@@ -2,9 +2,9 @@ import { of, BehaviorSubject, Observable } from 'rxjs';
 // INTERFACES
 import { UserModel } from '@shared/interfaces/user.interface';
 // MOCKS
-import { userLoggedMock } from '../data/user.mock';
+import { userLoggedMock } from '../data/user-data.mock';
 
-export class AuthMock {
+export class AuthServiceMock {
   public loggedUser = new BehaviorSubject<UserModel>(userLoggedMock);
 
   public logIn(): Observable<{ userLogged: UserModel; token: string }> {

@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BudgetMessageComponent } from './budget-message.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+// COMPONENT
+import { BudgetMessageComponent } from './budget-message.component';
 // MOCKS
-import { badMessage, goodMessage } from '@mocks/data/messages.mock';
+import { badMessage, goodMessage } from '@mocks/data/messages-data.mock';
 
 describe('BudgetMessageComponent', () => {
   let component: BudgetMessageComponent;

@@ -2,8 +2,8 @@ import { Observable, of, throwError } from 'rxjs';
 // INTERFACES
 import { UserPayload, UserResponse } from '@shared/interfaces/user.interface';
 // MOCKS
-import { userLoggedMock } from '../data/user.mock';
-import { errorMsgMock } from '../data/messages.mock';
+import { userLoggedMock } from '../data/user-data.mock';
+import { errorMsgMock } from '../data/messages-data.mock';
 
 export class ApiUserMock {
   public logIn(userObj: UserPayload): Observable<UserResponse> {

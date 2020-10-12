@@ -10,14 +10,18 @@ import { numbers } from '@shared/constants/numbers.const';
 export class LayoutComponent implements OnInit {
   @Input() contentWide = 6;
 
-  public layoutWide = {
-    content: 'eigth wide column',
-    margin: 'four wide column'
+  public layoutConfig = {
+    content: 'six wide column',
+    margin: 'five wide column'
   };
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.setLayoutConfig();
+  }
+
+  private setLayoutConfig(): void {
     if (typeof this.contentWide === 'number' && !(this.contentWide % 2)) {
-      this.layoutWide = {
+      this.layoutConfig = {
         content: `${numbers[this.contentWide]} wide column`,
         margin: `${numbers[(16 - this.contentWide) / 2]} wide column`
       };

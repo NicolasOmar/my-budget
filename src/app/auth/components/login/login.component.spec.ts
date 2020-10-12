@@ -10,8 +10,8 @@ import { SharedModule } from '@shared/shared.module';
 import { AuthService } from '@auth/services/auth.service';
 import { ErrorService } from '@shared/services/error.service';
 // MOCKS
-import { AuthMock } from '@mocks/services/auth.mock';
-import { userObjMock } from '@mocks/data/user.mock';
+import { AuthServiceMock } from '@mocks/services/auth-service.mock';
+import { userObjMock } from '@mocks/data/user-data.mock';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -31,7 +31,7 @@ describe('LoginComponent', () => {
         FormBuilder,
         {
           provider: AuthService,
-          useClass: AuthMock
+          useClass: AuthServiceMock
         },
         ErrorService
       ]

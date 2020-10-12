@@ -5,8 +5,13 @@ import { AuthService } from './auth.service';
 import { ApiUserService } from '@shared/api/api-user.service';
 // MOCKS
 import { ApiUserMock } from '@mocks/api/api-user.mock';
-import { userObjMock, userLoggedMock, newUserMock, badUserLoggedMock } from '@mocks/data/user.mock';
-import { errorMsgMock } from '@mocks/data/messages.mock';
+import {
+  userObjMock,
+  userLoggedMock,
+  newUserMock,
+  badUserLoggedMock
+} from '@mocks/data/user-data.mock';
+import { errorMsgMock } from '@mocks/data/messages-data.mock';
 
 describe('AuthService >', () => {
   let service: AuthService;

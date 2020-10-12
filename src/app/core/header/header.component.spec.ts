@@ -8,8 +8,8 @@ import { HeaderComponent } from './header.component';
 // SERVICE
 import { AuthService } from '@auth/services/auth.service';
 // MOCKS
-import { AuthMock } from '@mocks/services/auth.mock';
-import { userLoggedMock } from '@mocks/data/user.mock';
+import { AuthServiceMock } from '@mocks/services/auth-service.mock';
+import { userLoggedMock } from '@mocks/data/user-data.mock';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -23,7 +23,7 @@ describe('HeaderComponent', () => {
       providers: [
         {
           provide: AuthService,
-          useClass: AuthMock
+          useClass: AuthServiceMock
         }
       ]
     }).compileComponents();

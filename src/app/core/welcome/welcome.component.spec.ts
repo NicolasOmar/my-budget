@@ -7,9 +7,11 @@ import { SharedModule } from '@shared/shared.module';
 import { WelcomeComponent } from './welcome.component';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
+import { ActionsService } from '@shared/services/actions.service';
 // MOCKS
-import { AuthMock } from '@mocks/services/auth.mock';
-import { userLoggedMock } from '@mocks/data/user.mock';
+import { AuthServiceMock } from '@mocks/services/auth-service.mock';
+import { userLoggedMock } from '@mocks/data/user-data.mock';
+import { ActionsServiceMock } from '@mocks/services/actions-service.mock';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -23,7 +25,11 @@ describe('WelcomeComponent', () => {
       providers: [
         {
           provide: AuthService,
-          useClass: AuthMock
+          useClass: AuthServiceMock
+        },
+        {
+          provide: ActionsService,
+          useClass: ActionsServiceMock
         }
       ]
     }).compileComponents();
@@ -36,10 +42,11 @@ describe('WelcomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create with user name data', () => {
+  it('should create the component with user name and imported modules', () => {
     const userNameTest = `${userLoggedMock.name} ${userLoggedMock.lastName}`;
     expect(component).toBeTruthy();
     expect(component.userName).toBe(userNameTest);
+    expect(component.welcomeModules.length).toBe(1);
     expect(element.querySelector('budget-actions')).toBeTruthy();
     expect(element.querySelector('.label').innerHTML.trim()).toBe(userNameTest);
   });

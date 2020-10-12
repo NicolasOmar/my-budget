@@ -4,8 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
-import { AuthMock } from '@mocks/services/auth.mock';
-import { userLoggedMock } from '@mocks/data/user.mock';
+import { AuthServiceMock } from '@mocks/services/auth-service.mock';
+import { userLoggedMock } from '@mocks/data/user-data.mock';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,7 +15,7 @@ describe('AppComponent', () => {
       providers: [
         {
           provide: AuthService,
-          useClass: AuthMock
+          useClass: AuthServiceMock
         }
       ]
     }).compileComponents();

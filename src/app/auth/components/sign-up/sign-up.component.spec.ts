@@ -10,9 +10,9 @@ import { SignUpComponent } from './sign-up.component';
 import { AuthService } from '@auth/services/auth.service';
 import { ErrorService } from '@shared/services/error.service';
 // MOCKS
-import { AuthMock } from '@mocks/services/auth.mock';
-import { formInputs } from '@mocks/data/sign-up.mock';
-import { newUserMock } from '@mocks/data/user.mock';
+import { AuthServiceMock } from '@mocks/services/auth-service.mock';
+import { formInputs } from '@mocks/data/sign-up-data.mock';
+import { newUserMock } from '@mocks/data/user-data.mock';
 
 describe('SignUpComponent', () => {
   let component: SignUpComponent;
@@ -32,7 +32,7 @@ describe('SignUpComponent', () => {
         FormBuilder,
         {
           provider: AuthService,
-          useClass: AuthMock
+          useClass: AuthServiceMock
         },
         ErrorService
       ]
