@@ -12,14 +12,19 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'welcome',
+    canActivate: [AuthGuard],
+    component: WelcomeComponent
+  },
+  {
     path: 'auth',
     canActivate: [AuthGuard],
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'welcome',
+    path: 'users',
     canActivate: [AuthGuard],
-    component: WelcomeComponent
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
   }
 ];
 
