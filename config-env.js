@@ -2,8 +2,8 @@ const fs = require('fs');
 const envConfigFile = `
 export const environment = {
   production: true,
-  API_URL: '${process.env.API_URL},'
-  CRYPT_SECRET: '${process.env.CRYPT_SECRET},'
+  API_URL: '${process.env.API_URL}',
+  CRYPT_SECRET: '${process.env.CRYPT_SECRET}',
   CRYPT_METH: '${process.env.CRYPT_METH}'
 };
 `;

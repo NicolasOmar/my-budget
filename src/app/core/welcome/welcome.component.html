@@ -1,18 +1,14 @@
-<div class="ui one column centered grid">
-  <div class="column name-column">
-    <div class="ui statistic">
-      <div class="value">
-        Welcome
-      </div>
-      <div class="label">
-        {{ userName }}
-      </div>
-    </div>
-  </div>
+<main class="ui one column centered grid">
+  <section class="column name-column">
+    <article class="ui statistic">
+      <p class="value">Welcome</p>
+      <p class="label">{{ userName }}</p>
+    </article>
+  </section>
 
-  <div class="column">
-    <div class="ui one cards">
+  <section class="column">
+    <article class="ui one cards">
       <budget-actions [modules]="welcomeModules"></budget-actions>
-    </div>
-  </div>
-</div>
+    </article>
+  </section>
+</main>

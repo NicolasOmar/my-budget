@@ -1,5 +1,5 @@
 <budget-layout>
-  <div body>
+  <section body>
     <h2 class="ui center aligned header">{{ title }}</h2>
     
     <form
@@ -8,7 +8,7 @@
       [formGroup]="signUpForm"
       (submit)="onSubmit()"
     >
-      <div class="ui segment">
+      <section class="ui segment">
         <budget-input
           [config]="formInputs.name"
           formControlName="name">
@@ -28,7 +28,7 @@
           [config]="formInputs.password"
           formControlName="password">
         </budget-input>
-      </div>
+      </section>
 
       <button
         type="submit"
@@ -52,5 +52,5 @@
       [message]="errorMsg"
       (onClose)="closeMessage()">
     </budget-message>
-  </div>
+  </section>
 </budget-layout>

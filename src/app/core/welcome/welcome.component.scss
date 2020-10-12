@@ -1,10 +1,16 @@
-div.ui.one.column.centered.grid {
-  div.column.name-column {
+main.ui.one.column.centered.grid {
+  section.column.name-column {
     margin: 35px 0 25px 0;
     text-align: center;
+
+    p {
+      margin: 0;
+    }
   }
 
-  div.ui.cards {
-    justify-content: center;
+  section.column {
+    article.ui.cards {
+      justify-content: center;
+    }
   }
 }

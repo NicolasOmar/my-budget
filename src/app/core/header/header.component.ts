@@ -13,6 +13,7 @@ import { UserModel } from '@shared/interfaces/user.interface';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private sub = new Subscription();
+  public headerTitle = 'MyBudget | Angular';
   public userName: string = null;
 
   constructor(public router: Router, private authService: AuthService) {}
