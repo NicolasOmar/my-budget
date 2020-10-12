@@ -1,7 +1,7 @@
 interface Action {
   title: string;
   icon?: string;
-  path?: Array<string> | string;
+  path?: Array<string>;
 }
 
 export interface Module {

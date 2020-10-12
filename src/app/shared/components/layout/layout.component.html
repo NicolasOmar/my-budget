@@ -1,7 +1,7 @@
 <div class="ui middle aligned grid">
-  <div class="four wide column"></div>
-  <div class="eight wide column">
+  <div [ngClass]="layoutWide.margin"></div>
+  <div [ngClass]="layoutWide.content">
     <ng-content select="[body]"></ng-content>
   </div>
-  <div class="four wide column"></div>
+  <div [ngClass]="layoutWide.margin"></div>
 </div>

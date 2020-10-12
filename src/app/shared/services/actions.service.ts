@@ -14,7 +14,8 @@ export class ActionsService {
         actions: [
           {
             title: 'Change info',
-            icon: 'pencil alternate'
+            icon: 'pencil alternate',
+            path: ['/users/update']
           },
           {
             title: 'Change password',
