@@ -16,8 +16,8 @@ npm run setup
 ```
 
 ## How to run it
-Before asking, I do not recommend `npm start` because it's reserved for the Heroku deploy process.
-Therefore, there are two start options:
+Before starting for the first time, I reserved the `npm start` command for the [Heroku](https://www.heroku.com/) deploy process.
+Therefore, I added two start options:
 To run the app as a non-stopping service and start it in a new browser tab
 ```sh
 npm run local
@@ -31,14 +31,14 @@ ng serve
 To maintain a better code tracking in time, I decided to separate two branches with its respective environments.
 Those environments are being built and deployed on [Heroku](https://www.heroku.com/).
 | Branch | Version | Environment | Usage |
-| ------ | ------ | ------ | ------ |
+| :--- | :--- | :--- | :--- |
 | master | ![MyBudget Angular (master version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/master?color=success&label=%20&style=flat-square) | [mybudget-angular](https://mybudget-angular.herokuapp.com/) | Stable version |
 | in-progress | ![MyBudget Angular (in-progress version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/in-progress?color=yellow&label=%20&style=flat-square) | [mybudget-angular-dev](https://mybudget-angular-dev.herokuapp.com/) | Working on next iteration |
 
 ## Find out more
-| [Documentation](https://nicolasomar.github.io/my-budget-docs) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) |
-| ----- | ----- |
-| Documentation related to project (objective, features & roadmap) & technical aspects (used packages, testing mechanisms) | Project board to track current status |
+| [Documentation](https://nicolasomar.github.io/my-budget-docs) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) | [React Repo](https://github.com/NicolasOmar/my-budget-react) | [Node Repo](https://github.com/NicolasOmar/my-budget-api) |
+| :--- | :--- | :--- | :--- |
+| Documentation related to project (objective, features & roadmap) & technical aspects (error handling, testing mechanisms) | Project board to track current status | React front-end repository | Node API repository
 
 ## License
 **MIT**

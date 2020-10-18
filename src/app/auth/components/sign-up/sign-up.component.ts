@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
-import { ErrorService } from '@shared/services/error.service';
 import { AuthInputsService } from '@auth/services/auth-inputs.service';
+import { ErrorService } from '@shared/services/error.service';
 // INTERFACES
 import { Message } from '@shared/interfaces/message.interface';
 
