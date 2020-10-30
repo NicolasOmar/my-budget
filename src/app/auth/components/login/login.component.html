@@ -8,7 +8,7 @@
       [formGroup]="loginForm"
       (submit)="onSubmit()"
     >
-      <div class="ui segment">
+      <section class="ui segment">
         <budget-input
           [config]="formInputs.email"
           formControlName="email">
@@ -18,23 +18,17 @@
           [config]="formInputs.password"
           formControlName="password">
         </budget-input>
-      </div>
+      </section>
+      
+      <budget-button
+        [config]="loginButton"
+        [disable]="!loginForm.valid"
+      ></budget-button>
 
-      <button
-        type="submit"
-        class="ui fluid primary button"
-        [disabled]="!loginForm.valid"
-      >
-        Login
-      </button>
-
-      <button
-        type="button"
-        class="ui violet tertiary button sign-up-button"
-        [routerLink]="signUpLink"
-      >
-        Or you can Sign up
-      </button>
+      <budget-button
+        [config]="signUpButton"
+        (sendClick)="goToSignUp()"
+      ></budget-button>
     </form>
       
     <budget-message

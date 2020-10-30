@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+// INTERFACES
+import { ButtonConfig } from '@shared/interfaces/button.interface';
+// ENUMS
+import { ButtonColorEnum, ButtonTypeEnum } from '@shared/enums/button.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +39,19 @@ export class AuthInputsService {
       placeholder: 'Password',
       type: 'password'
     }
+  };
+
+  public loginButton: ButtonConfig = {
+    label: 'Login',
+    isFluid: true,
+    type: ButtonTypeEnum.submit
+  };
+
+  public signUpButton: ButtonConfig = {
+    label: 'Or you can Sign up',
+    color: ButtonColorEnum.violet,
+    isTertiary: true,
+    isFluid: true,
+    type: ButtonTypeEnum.button
   };
 }

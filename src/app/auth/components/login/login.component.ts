@@ -8,6 +8,7 @@ import { ErrorService } from '@shared/services/error.service';
 import { AuthInputsService } from '@auth/services/auth-inputs.service';
 // INTERFACES
 import { Message } from '@shared/interfaces/message.interface';
+import { ButtonConfig } from '@shared/interfaces/button.interface';
 
 @Component({
   selector: 'budget-login',
@@ -21,6 +22,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   public isLoading = false;
   public signUpLink = ['sign-up'];
   public title = 'Welcome to MyBudget | Angular';
+  public loginButton: ButtonConfig;
+  public signUpButton: ButtonConfig;
   public formInputs;
 
   constructor(
@@ -56,8 +59,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.errorMsg = null;
   }
 
+  public goToSignUp() {
+    this.router.navigate(this.signUpLink);
+  }
+
   private setForm(): void {
     this.formInputs = this.inputService.loginInputs;
+    this.loginButton = this.inputService.loginButton;
+    this.signUpButton = this.inputService.signUpButton;
 
     this.loginForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],

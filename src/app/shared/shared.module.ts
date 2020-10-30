@@ -7,12 +7,14 @@ import { BudgetMessageComponent } from './components/budget-message/budget-messa
 import { BudgetInputComponent } from './components/budget-input/budget-input.component';
 import { BudgetActionsComponent } from './components/budget-actions/budget-actions.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { BudgetButtonComponent } from './components/budget-button/budget-button.component';
 
 const COMPONENTS = [
   BudgetMessageComponent,
   BudgetInputComponent,
   BudgetActionsComponent,
-  LayoutComponent
+  LayoutComponent,
+  BudgetButtonComponent
 ];
 
 @NgModule({
