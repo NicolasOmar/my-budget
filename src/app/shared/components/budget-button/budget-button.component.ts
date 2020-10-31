@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+// INTERFACES;
 import { ButtonConfig } from '@shared/interfaces/button.interface';
 
 @Component({
