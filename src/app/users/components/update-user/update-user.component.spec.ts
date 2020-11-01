@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { UpdateUserComponent } from './update-user.component';
 // MODULES
 import { SharedModule } from '@shared/shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('UpdateUserComponent', () => {
   let component: UpdateUserComponent;
@@ -11,7 +14,13 @@ describe('UpdateUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [UpdateUserComponent],
-      imports: [SharedModule]
+      imports: [
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        SharedModule
+      ]
     }).compileComponents();
   }));
 
