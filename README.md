@@ -38,7 +38,7 @@ Those environments are being built and deployed on [Heroku](https://www.heroku.c
 ## Find out more
 | [Documentation](https://nicolasomar.github.io/my-budget-docs) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) | [React Repo](https://github.com/NicolasOmar/my-budget-react) | [Node Repo](https://github.com/NicolasOmar/my-budget-api) |
 | :--- | :--- | :--- | :--- |
-| Documentation related to project (objective, features & roadmap) & technical aspects (error handling, testing mechanisms) | Project board to track current status | React front-end repository | Node API repository
+| Documentation page for analysis and technical reference | Trello board for project status & tracking | React front-end repository | Node API repository
 
 ## License
 **MIT**

@@ -90,8 +90,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && npm run tsc && lint-staged",
-      "pre-push": "npm run update-version"
+      "pre-commit": "npm run tsc && lint-staged",
+      "pre-push": "npm run test && npm run update-version"
     }
   }
 }
