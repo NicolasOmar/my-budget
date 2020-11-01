@@ -23,7 +23,7 @@
         </budget-input>
 
         <budget-button-or
-          (clickFirst)="onSubmit()"
+          [disableFirst]="!hasChanges || !updateForm.valid"
           (clickSecond)="cancelUpdate()"
         ></budget-button-or>
       </section>

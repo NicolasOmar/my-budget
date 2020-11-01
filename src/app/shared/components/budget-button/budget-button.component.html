@@ -1,9 +1,9 @@
 <button 
   [type]="config.type"
   class="ui button"
-  [ngClass]="config.color || 'primary'"
+  [ngClass]="config.color"
   [class.fluid]="config.isFluid"
-  [class.primary]="!config.isTertiary"
+  [class.secondary]="config.isSecondary"
   [class.tertiary]="config.isTertiary"
   [disabled]="disable"
   (click)="onClick()"

@@ -1,17 +1,23 @@
 <div class="ui fluid buttons">
   <button
-    class="ui positive button"
+    class="ui button"
+    [ngClass]="[firstButton.color]"
+    [type]="firstButton.type"
+    [disabled]="disableFirst"
     (click)="onClickFirst()"
   >
-    Save
+    {{ firstButton.label }}
   </button>
   
-  <div class="or"></div>
+  <div [class]="orLabel"></div>
 
   <button
-    class="ui negative button"
+    class="ui button"
+    [ngClass]="[secondButton.color]"
+    [type]="secondButton.type"
+    [disabled]="disableSecond"
     (click)="onClickSecond()"
   >
-    Cancel
+    {{ secondButton.label }}
   </button>
 </div>

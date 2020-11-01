@@ -6,5 +6,7 @@ export enum ButtonTypeEnum {
 
 export enum ButtonColorEnum {
   primary = 'primary',
-  violet = 'violet'
+  violet = 'violet',
+  positive = 'positive',
+  negative = 'negative'
 }

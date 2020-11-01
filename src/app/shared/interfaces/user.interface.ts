@@ -5,6 +5,8 @@ export interface UserModel {
   token?: string;
 }
 
+export type UserUpdatePayload = Partial<UserModel>;
+
 export interface UserPayload {
   email: string;
   password: string;

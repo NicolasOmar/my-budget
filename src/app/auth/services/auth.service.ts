@@ -63,13 +63,13 @@ export class AuthService {
     }
   }
 
-  private setLocalUser(userData: UserModel | null): void {
+  public setLocalUser(userData: UserModel | null): void {
     userData
       ? localStorage.setItem('userData', JSON.stringify(userData))
       : localStorage.removeItem('userData');
   }
 
-  private getLocalUser(): UserModel | null {
+  public getLocalUser(): UserModel | null {
     return JSON.parse(localStorage.getItem('userData'));
   }
 
