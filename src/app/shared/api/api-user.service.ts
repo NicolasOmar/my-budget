@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 // INTERFACES
-import { UserPayload, UserResponse } from '@shared/interfaces/user.interface';
+import { UserModel, UserPayload, UserResponse } from '@shared/interfaces/user.interface';
 // CONSTANTS
 import { USER_ROUTES } from '@shared/constants/routes.const';
 // ENUMS
@@ -32,6 +32,20 @@ export class ApiUserService {
 
   public signUp(user: UserPayload): Observable<UserResponse> {
     return this.http.post(`${environment.API_URL}/${USER_ROUTES.MAIN}`, user).pipe(
+      catchError(error => throwError(this.parseError(error))),
+      tap((response: UserResponse) => response)
+    );
+  }
+
+  public getUser(): Observable<UserModel> {
+    return this.http.get(`${environment.API_URL}/${USER_ROUTES.ME}`).pipe(
+      catchError(error => throwError(this.parseError(error))),
+      tap((response: UserModel) => response)
+    );
+  }
+
+  public updateUser(): Observable<any> {
+    return this.http.patch(`${environment.API_URL}/${USER_ROUTES.ME}`, {}).pipe(
       catchError(error => throwError(this.parseError(error))),
       tap((response: UserResponse) => response)
     );
