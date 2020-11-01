@@ -5,7 +5,11 @@ import { Subscription } from 'rxjs';
 // SERVICES
 import { UserInputsService } from '@users/services/user-inputs.service';
 import { UserService } from '@users/services/user.service';
-import { UserModel } from '@shared/interfaces/user.interface';
+import { MessageService } from '@shared/services/message.service';
+// INTERFACES
+import { Message } from '@shared/interfaces/message.interface';
+// ENUMS
+import { MessageStateEnum } from '@shared/enums/states.enum';
 
 @Component({
   selector: 'budget-update-user',
@@ -19,11 +23,13 @@ export class UpdateUserComponent implements OnInit, OnDestroy {
   public updateForm: FormGroup;
   public isLoading = false;
   public hasChanges = false;
+  public message: Message = null;
   public formInputs;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private messageService: MessageService,
     private inputService: UserInputsService,
     private userService: UserService
   ) {}
@@ -34,6 +40,8 @@ export class UpdateUserComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
+    this.isLoading = true;
+
     const formData = this.updateForm.getRawValue();
     let newObj = {};
 
@@ -43,11 +51,31 @@ export class UpdateUserComponent implements OnInit, OnDestroy {
         newObj = { ...newObj, [key]: value };
       });
 
-    this.sub.add(this.userService.updateUser(newObj).subscribe(response => console.warn(response)));
+    this.sub.add(
+      this.userService.updateUser(newObj).subscribe(
+        ({ name, lastName }) => {
+          this.message = this.messageService.sendObj(
+            'Your data has been updated',
+            MessageStateEnum.SUCCESS
+          );
+          this.baseUser = { name, lastName };
+          this.hasChanges = false;
+          this.isLoading = false;
+        },
+        error => {
+          this.message = this.messageService.sendObj(error, MessageStateEnum.ERROR);
+          this.isLoading = false;
+        }
+      )
+    );
   }
 
   public cancelUpdate(): void {
     this.router.navigate(['/welcome']);
+  }
+
+  public closeMessage(): void {
+    this.message = null;
   }
 
   private setForm(): void {

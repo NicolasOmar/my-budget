@@ -8,7 +8,7 @@ import { LoginComponent } from './login.component';
 import { SharedModule } from '@shared/shared.module';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
-import { ErrorService } from '@shared/services/error.service';
+import { MessageService } from '@shared/services/message.service';
 // MOCKS
 import { AuthServiceMock } from '@mocks/services/auth-service.mock';
 import { userObjMock } from '@mocks/data/user-data.mock';
@@ -33,7 +33,7 @@ describe('LoginComponent', () => {
           provider: AuthService,
           useClass: AuthServiceMock
         },
-        ErrorService
+        MessageService
       ]
     }).compileComponents();
   }));

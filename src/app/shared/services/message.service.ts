@@ -7,11 +7,12 @@ import { MessageStateEnum } from '../enums/states.enum';
 @Injectable({
   providedIn: 'root'
 })
-export class ErrorService {
-  public sendObj(errorMsg: string): Message {
+export class MessageService {
+  public sendObj(errorMsg: string, type: MessageStateEnum): Message {
+    const title = type === MessageStateEnum.ERROR ? 'Ups!' : 'Great!';
     return {
-      title: 'Ups!',
-      type: MessageStateEnum.ERROR,
+      title,
+      type,
       paragraph: [errorMsg]
     };
   }

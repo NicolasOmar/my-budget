@@ -28,5 +28,11 @@
         ></budget-button-or>
       </section>
     </form>
+      
+    <budget-message
+      *ngIf="message"
+      [message]="message"
+      (onClose)="closeMessage()">
+    </budget-message>
   </section>
 </budget-layout>

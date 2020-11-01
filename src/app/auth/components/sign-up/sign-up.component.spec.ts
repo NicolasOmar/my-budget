@@ -8,7 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 import { SignUpComponent } from './sign-up.component';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
-import { ErrorService } from '@shared/services/error.service';
+import { MessageService } from '@shared/services/message.service';
 // MOCKS
 import { AuthServiceMock } from '@mocks/services/auth-service.mock';
 import { formInputs } from '@mocks/data/sign-up-data.mock';
@@ -34,7 +34,7 @@ describe('SignUpComponent', () => {
           provider: AuthService,
           useClass: AuthServiceMock
         },
-        ErrorService
+        MessageService
       ]
     }).compileComponents();
   }));

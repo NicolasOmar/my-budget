@@ -5,9 +5,11 @@ import { Subscription } from 'rxjs';
 // SERVICES
 import { AuthService } from '@auth/services/auth.service';
 import { AuthInputsService } from '@auth/services/auth-inputs.service';
-import { ErrorService } from '@shared/services/error.service';
+import { MessageService } from '@shared/services/message.service';
 // INTERFACES
 import { Message } from '@shared/interfaces/message.interface';
+// ENUMS
+import { MessageStateEnum } from '@shared/enums/states.enum';
 
 @Component({
   selector: 'budget-sign-up',
@@ -28,7 +30,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     private router: Router,
     private authService: AuthService,
     private inputService: AuthInputsService,
-    private errorService: ErrorService
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
         },
         error => {
           this.isLoading = false;
-          this.errorMsg = this.errorService.sendObj(error);
+          this.errorMsg = this.messageService.sendObj(error, MessageStateEnum.ERROR);
         }
       )
     );
