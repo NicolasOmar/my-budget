@@ -1,14 +1,16 @@
 {
   "name": "my-budget-angular",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Angular web application based for administrate earnings and expenses",
   "scripts": {
     "ng": "ng",
     "start": "node run-server.js",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "e2e": "ng e2e",
     "local": "ng serve --o",
     "setup": "npm i -g @angular/cli && npm i",
+    "setup:ci": "npm run setup && npm i -g codecov",
     "tsc": "tsc",
     "lint": "eslint --fix src/**/*.ts",
     "prettier": "prettier --write src",
