@@ -30,10 +30,10 @@ ng serve
 ## Branches and Environments
 To maintain a better code tracking in time, I decided to separate two branches with its respective environments.
 Those environments are being built and deployed on [Heroku](https://www.heroku.com/).
-| Branch | Version | Environment | Usage |
-| :--- | :--- | :--- | :--- |
-| master | ![MyBudget Angular (master version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/master?color=success&label=%20&style=flat-square) | [mybudget-angular](https://mybudget-angular.herokuapp.com/) | Stable version |
-| in-progress | ![MyBudget Angular (in-progress version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/in-progress?color=yellow&label=%20&style=flat-square) | [mybudget-angular-dev](https://mybudget-angular-dev.herokuapp.com/) | Working on next iteration |
+| Branch | Version | Coverage | Environment | Usage |
+| :--- | :---: | :---: | :--- | :--- |
+| master | ![MyBudget Angular (master version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/master?color=success&label=%20&style=flat-square) | ![MyBudget Angular Coverage (master version)](https://img.shields.io/codecov/c/github/nicolasomar/my-budget-angular/master?label=%20&style=flat-square&logo=codecov) | [mybudget-angular](https://mybudget-angular.herokuapp.com/) | Stable version |
+| in-progress | ![MyBudget Angular (in-progress version)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget-angular/in-progress?color=yellow&label=%20&style=flat-square) | ![MyBudget Angular Coverage (in-progress version)](https://img.shields.io/codecov/c/github/nicolasomar/my-budget-angular/master?label=%20&style=flat-square&logo=codecov) | [mybudget-angular-dev](https://mybudget-angular-dev.herokuapp.com/) | Working on next iteration |
 
 ## Find out more
 | [Documentation](https://nicolasomar.github.io/my-budget-docs) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) | [React Repo](https://github.com/NicolasOmar/my-budget-react) | [Node Repo](https://github.com/NicolasOmar/my-budget-api) |
