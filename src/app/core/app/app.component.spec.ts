@@ -1,16 +1,23 @@
 import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+// SERVICES
+import { AuthService } from '@auth/services/auth.service';
+import { AuthServiceMock } from '@mocks/services/auth-service.mock';
+import { userLoggedMock } from '@mocks/data/user-data.mock';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      imports: [HttpClientModule, RouterTestingModule],
+      providers: [
+        {
+          provide: AuthService,
+          useClass: AuthServiceMock
+        }
+      ]
     }).compileComponents();
   }));
 
@@ -20,16 +27,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'my-budget-angular'`, () => {
+  it('should initiate the app start autologin', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-budget-angular');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('my-budget-angular app is running!');
+    app.ngOnInit();
+    expect(app.loggedUser).toBe(userLoggedMock);
+    app.ngOnDestroy();
   });
 });

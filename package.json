@@ -1,16 +1,21 @@
 {
   "name": "my-budget-angular",
-  "version": "0.0.1",
+  "version": "0.0.28",
   "description": "Angular web application based for administrate earnings and expenses",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "node run-server.js",
+    "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
+    "e2e": "ng e2e",
     "local": "ng serve --o",
     "setup": "npm i -g @angular/cli && npm i",
-    "build": "ng build --aot --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "setup:ci": "npm run setup && npm i -g codecov",
+    "tsc": "tsc",
+    "lint": "eslint --fix src/**/*.ts",
+    "prettier": "prettier --write src",
+    "update-version": "node update-version.js",
+    "postinstall": "node config-env.js && ng build --aot --prod"
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",
@@ -24,9 +29,10 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "crypto-js": "^4.0.0",
     "express": "^4.17.1",
-    "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.5.4",
+    "semantic-ui-css": "^2.4.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
@@ -35,20 +41,59 @@
     "@angular/cli": "~9.1.4",
     "@angular/compiler-cli": "~9.1.4",
     "@angular/language-service": "~9.1.4",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
     "codelyzer": "^5.1.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~5.0.0",
+    "karma": "^5.0.9",
     "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^11.0.0",
+    "prompts": "^2.3.2",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
+  },
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.7"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "crypto": false,
+    "stream": false,
+    "http": false,
+    "tls": false,
+    "zlib": false,
+    "https": false,
+    "net": false
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.scss": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tsc && lint-staged",
+      "pre-push": "npm run test:ci && npm run update-version"
+    }
   }
 }

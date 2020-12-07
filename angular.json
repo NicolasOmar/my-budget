@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "budget",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -27,9 +27,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -45,6 +43,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -94,7 +93,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "src/app/**/api/**",
+              "src/mocks/**",
+              "src/environments/**",
+              "src/assets/**"
+            ]
           }
         },
         "lint": {

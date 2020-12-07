@@ -1,0 +1,40 @@
+<budget-layout>
+  <section body>
+    <h2 class="ui center aligned header">{{ title }}</h2>
+
+    <form
+      class="ui form"
+      [ngClass]="{'loading': isLoading}"
+      [formGroup]="loginForm"
+      (submit)="onSubmit()"
+    >
+      <section class="ui segment">
+        <budget-input
+          [config]="formInputs.email"
+          formControlName="email">
+        </budget-input>
+        
+        <budget-input
+          [config]="formInputs.password"
+          formControlName="password">
+        </budget-input>
+      </section>
+      
+      <budget-button
+        [config]="loginButton"
+        [disable]="!loginForm.valid"
+      ></budget-button>
+
+      <budget-button
+        [config]="signUpButton"
+        (sendClick)="goToSignUp()"
+      ></budget-button>
+    </form>
+      
+    <budget-message
+      *ngIf="errorMsg"
+      [message]="errorMsg"
+      (onClose)="closeMessage()">
+    </budget-message>
+  </section>
+</budget-layout>

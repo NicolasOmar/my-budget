@@ -1,0 +1,9 @@
+button.ui.button {
+  &.tertiary {
+    margin-top: 10px;
+
+    &:hover {
+      box-shadow: none !important;
+    }
+  }
+}

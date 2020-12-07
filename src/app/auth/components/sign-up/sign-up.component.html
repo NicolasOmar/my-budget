@@ -1,0 +1,58 @@
+<budget-layout>
+  <section body>
+    <budget-title
+      [title]="title"
+    ></budget-title>
+    
+    <form
+      class="ui form"
+      [ngClass]="{'loading': isLoading}"
+      [formGroup]="signUpForm"
+      (submit)="onSubmit()"
+    >
+      <section class="ui segment">
+        <budget-input
+          [config]="formInputs.name"
+          formControlName="name">
+        </budget-input>
+
+        <budget-input
+          [config]="formInputs.lastName"
+          formControlName="lastName">
+        </budget-input>
+
+        <budget-input
+          [config]="formInputs.email"
+          formControlName="email">
+        </budget-input>
+
+        <budget-input
+          [config]="formInputs.password"
+          formControlName="password">
+        </budget-input>
+      </section>
+
+      <button
+        type="submit"
+        class="ui fluid primary button"
+        [disabled]="!signUpForm.valid"
+      >
+        Login
+      </button>
+
+      <button
+        type="button"
+        class="ui violet tertiary button go-back-button"
+        [routerLink]="signUpLink"
+      >
+        I already have an account
+      </button>
+    </form>
+      
+    <budget-message
+      *ngIf="errorMsg"
+      [message]="errorMsg"
+      (onClose)="closeMessage()">
+    </budget-message>
+  </section>
+</budget-layout>

@@ -1,0 +1,38 @@
+<budget-layout>
+  <section body>
+    <budget-title
+      [title]="title"
+    ></budget-title>
+    
+    <form
+      class="ui form"
+      *ngIf="updateForm"
+      [ngClass]="{ 'loading': isLoading }"
+      [formGroup]="updateForm"
+      (submit)="onSubmit()"
+    >
+      <section class="ui segment">
+        <budget-input
+          [config]="formInputs.name"
+          formControlName="name">
+        </budget-input>
+
+        <budget-input
+          [config]="formInputs.lastName"
+          formControlName="lastName">
+        </budget-input>
+
+        <budget-button-or
+          [disableFirst]="!hasChanges || !updateForm.valid"
+          (clickSecond)="cancelUpdate()"
+        ></budget-button-or>
+      </section>
+    </form>
+      
+    <budget-message
+      *ngIf="message"
+      [message]="message"
+      (onClose)="closeMessage()">
+    </budget-message>
+  </section>
+</budget-layout>

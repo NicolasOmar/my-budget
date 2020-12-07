@@ -1,0 +1,12 @@
+<div class="field input-content" [class.error]="invalid">
+  <div class="ui left icon input">
+    <input
+      [type]="config.type || 'text'"
+      [placeholder]="config.placeholder || ''"
+      [value]="_value"
+      (input)="onInput($event.target.value)"
+      (blur)="onTouched()"
+      >
+    <i *ngIf="config.icon" class="{{ config.icon }} icon"></i>
+  </div>
+</div>

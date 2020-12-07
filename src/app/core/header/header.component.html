@@ -1,0 +1,31 @@
+<header class="ui menu">
+  <section class="left menu">
+    <p class="header item">
+      <i class="angular icon"></i>
+      {{ headerTitle }}
+    </p>
+  </section>
+
+  <section class="right menu">
+    <div class="ui simple dropdown item">
+      {{ userName }}
+      <i class="dropdown icon"></i>
+
+      <div class="menu">
+        <div class="item">
+          <i class="pencil alternate icon"></i>
+          Change info
+        </div>
+        <div class="item">
+          <i class="lock icon"></i>
+          Change password
+        </div>
+        <div class="divider"></div>
+        <div class="item log-out" (click)="onLogout()">
+          <i class="sign-out icon"></i>
+          Logout
+        </div>
+      </div>
+    </div>
+  </section>
+</header>

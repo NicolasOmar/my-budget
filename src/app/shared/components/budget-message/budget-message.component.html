@@ -1,0 +1,14 @@
+<div class="ui message" [ngClass]="messageStyle">
+  <i class="close icon" (click)="onCloseClick()"></i>
+
+  <div class="header">{{ message.title }}</div>
+
+  <ng-container *ngIf="message.paragraph.length > 1">
+    <div class="ul list">
+      <li *ngFor="let item of message.paragraph">{{ item }}</li>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="message.paragraph.length === 1">
+    <p *ngIf="message.paragraph">{{ message.paragraph }}</p>
+  </ng-container>
+</div>

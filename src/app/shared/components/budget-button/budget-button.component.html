@@ -1,0 +1,12 @@
+<button 
+  [type]="config.type"
+  class="ui button"
+  [ngClass]="config.color"
+  [class.fluid]="config.isFluid"
+  [class.secondary]="config.isSecondary"
+  [class.tertiary]="config.isTertiary"
+  [disabled]="disable"
+  (click)="onClick()"
+>
+ {{ config.label }}
+</button>
