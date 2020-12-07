@@ -1,6 +1,11 @@
 import { Observable, of, throwError } from 'rxjs';
 // INTERFACES
-import { UserPayload, UserResponse } from '@shared/interfaces/user.interface';
+import {
+  UserModel,
+  UserPayload,
+  UserResponse,
+  UserUpdatePayload
+} from '@shared/interfaces/user.interface';
 // MOCKS
 import { userLoggedMock } from '../data/user-data.mock';
 import { errorMsgMock } from '../data/messages-data.mock';
@@ -15,6 +20,10 @@ export class ApiUserMock {
       : throwError(errorMsgMock.login);
   }
 
+  public logOut(): Observable<unknown> {
+    return of(true);
+  }
+
   public signUp(userObj: UserPayload): Observable<UserResponse> {
     return userObj.password
       ? of({
@@ -24,7 +33,11 @@ export class ApiUserMock {
       : throwError(errorMsgMock.signUp);
   }
 
-  public logOut(): Observable<unknown> {
-    return of(true);
+  public getUser(): Observable<UserModel> {
+    return of(userLoggedMock);
+  }
+
+  public updateUser(newUserData: UserUpdatePayload): Observable<UserModel> {
+    return of(userLoggedMock);
   }
 }

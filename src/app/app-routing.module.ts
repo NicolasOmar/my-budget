@@ -5,7 +5,7 @@ import { AuthGuard } from '@shared/guards/auth.guard';
 // COMPONENTS
 import { WelcomeComponent } from '@core/welcome/welcome.component';
 
-const routes: Routes = [
+export const mainRoutes: Routes = [
   {
     path: '',
     redirectTo: '/auth',
@@ -29,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(mainRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

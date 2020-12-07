@@ -36,7 +36,7 @@ export class UpdateUserComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.setForm();
-    this.thereAreChanges();
+    this.listenFormChanges();
   }
 
   public onSubmit(): void {
@@ -102,7 +102,7 @@ export class UpdateUserComponent implements OnInit, OnDestroy {
     );
   }
 
-  private thereAreChanges(): void {
+  private listenFormChanges(): void {
     this.sub.add(
       this.updateForm.valueChanges.subscribe(formData => {
         this.hasChanges =
