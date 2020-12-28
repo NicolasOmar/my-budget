@@ -15,7 +15,7 @@
     "lint": "eslint --fix src/**/*.ts",
     "prettier": "prettier --write src",
     "update-version": "node scripts/update-version.js",
-    "build:prod": "node scripts/config-env.js && ng build --aot --prod"
+    "build:prod": "ng build --aot --prod"
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",
