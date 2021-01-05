@@ -1,25 +1,33 @@
 {
   "name": "my-budget-angular",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Angular web application based for administrate earnings and expenses",
   "scripts": {
     "ng": "ng",
-    "start": "node run-server.js",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "e2e": "ng e2e",
     "local": "ng serve --o",
     "setup": "npm i -g @angular/cli && npm i",
-    "setup:ci": "npm run setup && npm i -g codecov",
+    "setup:prod": "npm i -g @angular/cli && npm i --only=prod",
+    "setup:ci": "npm run setup:prod && npm i -g codecov",
     "tsc": "tsc",
     "lint": "eslint --fix src/**/*.ts",
     "prettier": "prettier --write src",
-    "update-version": "node update-version.js",
-    "postinstall": "node config-env.js && ng build --aot --prod"
+    "update-version": "node scripts/update-version.js",
+    "build:ci": "node scripts/config-env.js && ng build --aot --prod"
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",
   "private": false,
+  "homepage": "https://github.com/NicolasOmar/my-budget#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasOmar/my-budget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NicolasOmar/my-budget/issues"
+  },
   "dependencies": {
     "@angular/animations": "~9.1.4",
     "@angular/common": "~9.1.4",
