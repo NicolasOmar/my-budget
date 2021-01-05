@@ -12,7 +12,7 @@ const runVersionUpdate = async () => {
         { title: '1. Patch: Indicates small changes. Used for updates (eg. 0.0.1 -> 0.0.2)', value: 'patch' },
         { title: '2. Minor: Indicates medium changes. Used for features (eg. 0.0.2 -> 0.1.0)', value: 'minor' },
         { title: '3. Major: Indicates great changes. Used for releases (eg. 0.2.1 -> 1.0.0)', value: 'major' },
-        { title: '4. None: It will continues the push process without any version updates', value: null },
+        { title: '4. None: It will continue the push process without any version updates', value: null },
       ],
       initial: 0
     })
