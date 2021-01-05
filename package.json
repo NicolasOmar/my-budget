@@ -20,14 +20,14 @@
     "setup": "npm i -g @angular/cli && npm i",
     "setup:prod": "npm i -g @angular/cli && npm i --only=prod",
     "setup:ci": "npm run setup:prod && npm i -g codecov",
+    "build:ci": "node scripts/config-env.js && ng build --aot --prod",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "e2e": "ng e2e",
     "tsc": "tsc",
     "lint": "eslint --fix src/**/*.ts",
     "prettier": "prettier --write src",
-    "update-version": "node scripts/update-version.js",
-    "build:ci": "node scripts/config-env.js && ng build --aot --prod"
+    "update-version": "node scripts/update-version.js"
   },
   "dependencies": {
     "@angular/animations": "~9.1.4",
