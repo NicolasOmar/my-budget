@@ -16,7 +16,7 @@ jobs:
         node-version: 12
 
     - name: Install dependences
-      run: npm run setup:ci
+      run: npm i
 
     - name: Run tests
       run: npm run test:ci

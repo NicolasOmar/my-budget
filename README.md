@@ -4,7 +4,7 @@ Web application based on Angular for administrating personal earnings and expens
 ## What do I need?
 Before cloning this repo, I recommend installing the following software:
 - [Node](https://nodejs.org/en/download/) >=12.16.1 to install packages
-- [API Repo](https://github.com/NicolasOmar/my-budget-api) to work in a local environment
+- [API Repo](https://github.com/NicolasOmar/my-budget-api) to work with the designed API on local
 - [Angular CLI](https://cli.angular.io/) to run Angular specific commands
 
 ## Setup
@@ -27,11 +27,11 @@ npm run local
 
 ## Branches and Environments
 To maintain better code tracking in time, I decided to separate the development process into two branches with their respective environments.
-Those environments are being hosted on [AWS Amplify](https://aws.amazon.com/amplify/).
+Those environments are being hosted on [Netlify](https://app.netlify.com/).
 | Branch | Version | Coverage | Environment | Usage |
 | :--- | :---: | :---: | :--- | :--- |
-| master | ![My Budget (master branch)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget/master?color=success&label=%20&style=flat-square) | ![My Budget Coverage (master branch)](https://img.shields.io/codecov/c/github/nicolasomar/my-budget/master?label=%20&style=flat-square&logo=codecov) | [Production](https://master.d2i6kyeewx6g66.amplifyapp.com/) | Stable version |
-| develop | ![My Budget (develop branch)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget/develop?color=yellow&label=%20&style=flat-square) | ![My Budget Coverage (develop branch)](https://img.shields.io/codecov/c/github/nicolasomar/my-budget/develop?label=%20&style=flat-square&logo=codecov) | [Development](https://develop.d1q34rcbg2o0b5.amplifyapp.com/) | Working on next iteration |
+| master | ![My Budget (master branch)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget/master?color=success&label=%20&style=flat-square) | ![My Budget Coverage (master branch)](https://img.shields.io/codecov/c/github/nicolasomar/my-budget/master?label=%20&style=flat-square&logo=codecov) | [Production](https://my-budget-prod.netlify.app/) | Stable version |
+| develop | ![My Budget (develop branch)](https://img.shields.io/github/package-json/v/nicolasomar/my-budget/develop?color=yellow&label=%20&style=flat-square) | ![My Budget Coverage (develop branch)](https://img.shields.io/codecov/c/github/nicolasomar/my-budget/develop?label=%20&style=flat-square&logo=codecov) | [Development](https://my-budget-dev.netlify.app/) | Working on next iteration |
 
 ## Find out more
 | [Documentation](https://nicolasomar.github.io/my-budget-docs) | [Project Status](https://trello.com/b/R6Yn7vb0/mybudget) | [Node Repo](https://github.com/NicolasOmar/my-budget-api) |
